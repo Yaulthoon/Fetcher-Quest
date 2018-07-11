@@ -1,0 +1,53 @@
+h1 {
+	font-family: 'Amaranth', 'Arial';
+	font-size: 2vw;
+	color: #d45500;
+	margin-left: 3vw;
+	border-bottom: 2.5px solid #d45500;
+	width: fit-content;
+	max-width: 25%;
+}
+
+p {
+	box-sizing: border-box;
+	position: relative;
+	color: #1f1c14;
+	font-size: 1.3vw;
+	font-family: 'Arial';
+	padding: 0;
+	margin: 1.5vw 3vw 0px 0vw;
+	text-align: left;
+	left: 3vw;
+	width: 74vw;
+	cursor: auto;
+}
+
+h2 {
+	position: relative;
+	margin: 0px;
+	margin-bottom: -0.5vw;
+	padding: 0px;
+	left: 3vw;
+	color: #d45500;
+	font-size: 1.3vw;
+	font-family: 'Arial';
+	text-decoration: underline;
+	width: fit-content;
+}
+
+@media only screen and (max-width: 700px) {
+	h1 {
+		font-size: 4.5vw;
+		max-width: 60%;
+	}
+	
+	h2 {
+		font-size: 3.6vw;
+		max-width: 60%;
+	}
+	
+	p {
+		font-size: 3vw;
+		width: 60vw;
+	}
+}

@@ -1,0 +1,16 @@
+<div id = "navigation">
+<div id = "navigationContainer">
+<a routerLink = "/"><span>Title Screen</span></a>
+<a routerLink = "/about" routerLinkActive = "navActive"><span>About</span></a>
+<a routerLink = "/sideQuests" routerLinkActive = "navActive"><span>Minigames</span></a>
+</div>
+</div>
+
+<div id = "sideBar">
+<a routerLink = "/sideQuests/" routerLinkActive = "navActive2" [routerLinkActiveOptions] = "{exact:true}">
+<span>Magic Square</span></a>
+</div>
+
+<div id = "content">
+<router-outlet></router-outlet>
+</div>

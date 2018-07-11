@@ -1,0 +1,96 @@
+
+#container {
+	position: relative;
+	height: 90vh;
+	width: 100%;
+	margin: 0px;
+	background: linear-gradient(to top, #cacaca, #99ccff);
+}
+
+.textArea {
+	font-size: 3vw;
+	text-align: center;
+	width: 100%;
+	left: 0%;
+}
+
+.title {
+	box-sizing: border-box;
+	font-family: 'Amaranth', 'Arial';
+	font-size: 7vw;
+	color: #d45500;
+	transform: translate(0, -60%);
+	opacity: 0;
+	transition-property: all;
+	transition-timing-function: linear;
+	transition-duration: 2s;
+}
+
+.options {
+	box-sizing: border-box;
+	position: relative;
+	top: 60vh;
+	font-family: 'Amaranth', 'Arial';
+	transform: translate(0, -40vh);
+	font-size: 2vw;
+	color: #d45500;
+	width: 20%;
+	left: 40%;
+	opacity: 0;
+	transition-property: all;
+	transition-timing-function: linear;
+	transition-duration: 2s;
+}
+
+#svgContainer {
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 0%;
+	width: 100%;
+	margin-bottom: -3vh;
+}
+
+p {
+	cursor: pointer;
+	color: #d45500;
+}
+
+span:hover {
+	border-bottom: 2px solid #d45500;
+}
+
+#fillGround {
+	position: relative;
+	height: 10vh;
+	margin: 0px;
+	background: #d45500;
+}
+
+/* #1f1c14 for your grey color later */
+
+@media only screen and (max-width: 700px) {
+	#fillGround {
+		
+	}
+	
+	#adjuster {
+		width: 100%;
+		overflow: hidden;
+	}
+	
+	#svgContainer {
+		margin-bottom: -10px;
+		width: 175%;
+	}
+	
+	.title {
+		font-size: 10vw;
+	}
+	
+	.options {
+		font-size: 5vw;
+		left: 10%;
+		width: 80%;
+	}
+
+}

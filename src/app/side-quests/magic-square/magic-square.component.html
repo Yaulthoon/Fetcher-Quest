@@ -1,0 +1,41 @@
+<div id = "contentContainer">
+<h1>
+Magic Square
+</h1>
+
+<p>
+Lupin needs help solving this magical contraption.  Can you find 
+a way for the sum of each row, column, and diagonal to equal the 
+same number?
+</p>
+
+<div *ngIf = "this.magicSuccess">
+<p><span>
+Well done!  I guess those squares weren't so magical after all.
+</span><br/><button (click) = "this.magicSuccess = false">Retry</button></p>
+</div>
+</div>
+
+<div id = "container">
+	<div [hidden] = "this.magicSuccess">
+	<form (ngSubmit) = "this.checkSolution()" #magicForm = "ngForm">
+    <input class = "topLeft" [(ngModel)]="square1" name="square1" required>
+	<input class = "topMiddle" [(ngModel)]="square2" name="square2" required>
+	<input class = "topRight" [(ngModel)]="square3" name="square3" required>
+	<input class = "middleLeft" [(ngModel)]="square4" name="square4" required>
+	<input class = "middleMiddle" [(ngModel)]="square5" name="square5" required>
+	<input class = "middleRight" [(ngModel)]="square6" name="square6" required>
+	<input class = "bottomLeft" [(ngModel)]="square7" name="square7" required>
+	<input class = "bottomBottom" [(ngModel)]="square8" name="square8" required>
+	<input class = "bottomRight" [(ngModel)]="square9" name="square9" required>
+	</form>
+	<button type = "submit" [disabled] = "!magicForm.form.valid" 
+	(click) = "this.checkSolution()">Validate</button>
+	</div>
+	<div class = "error" *ngIf = "!cheFifteen">{{errFifteen}}</div>
+	<div class = "error" *ngIf = "!valNumbers">{{errNumbers}}</div>
+	<div class = "error" *ngIf = "!conRange && valNumbers">{{errRange}}</div>
+	<div class = "error" *ngIf = "!conUnique">{{errUnique}}</div>
+	
+</div>
+
