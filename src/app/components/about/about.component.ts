@@ -1,7 +1,7 @@
 import { Component, OnInit, QueryList, ContentChildren, ViewChildren, ElementRef, Renderer2 } from '@angular/core';
 import {ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { ActiveLinkService } from '../active-link.service';
+import { ActiveLinkService } from '../../services/active-link.service';
 import {Observable} from "rxjs";
 import {BehaviorSubject} from "rxjs";
 import { WhatIsFetcherQuestComponent } from '../about/about.faq.folder/what-is-fetcher-quest/what-is-fetcher-quest.component';

@@ -6,6 +6,8 @@
 </div>
 </div>
 
+<div id = "wrapper">
+<div id = "sideBarWrapper">
 <div id = "sideBar">
 <a routerLink = "/about/" routerLinkActive = "navActive2" [routerLinkActiveOptions] = "{exact:true}">
 <span>What is Fetcher Quest?</span></a>
@@ -16,7 +18,9 @@
 <a routerLink = "/about/updates" routerLinkActive = "navActive2" [routerLinkActiveOptions] = "{exact:true}">
 <span>Latest Updates</span></a>
 </div>
+</div>
 
 <div id = "content">
 <router-outlet></router-outlet>
+</div>
 </div>

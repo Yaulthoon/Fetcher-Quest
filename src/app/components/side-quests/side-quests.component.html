@@ -6,11 +6,15 @@
 </div>
 </div>
 
+<div id = "wrapper">
 <div id = "sideBar">
 <a routerLink = "/sideQuests/" routerLinkActive = "navActive2" [routerLinkActiveOptions] = "{exact:true}">
 <span>Magic Square</span></a>
+<a routerLink = "/sideQuests/twenty-one" routerLinkActive = "navActive2" [routerLinkActiveOptions] = "{exact:true}">
+<span>At the 21st Hour</span></a>
 </div>
 
 <div id = "content">
 <router-outlet></router-outlet>
+</div>
 </div>

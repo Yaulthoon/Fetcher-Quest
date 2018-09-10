@@ -1,0 +1,187 @@
+<h1>
+At the 21st Hour
+</h1>
+
+<!--Scenario part 1 -->
+<div id = "storyboard" *ngIf = "this.storyProgress === 0">
+<p>
+Traveling along the roadside, you find a gathering of people 
+surrounding a well-dressed man sitting casually in a chair 
+counting what appears to be his latest winnings.  His flamboyant 
+attire suggests that he is somewhat of an entertainer, or at 
+the very least, a gentleman that that enjoys partaking in games 
+of chance.
+</p>
+<p>
+As the buzz of the awed audience reaches your ear, you lock 
+eyes with the gentleman as he waves you over with a sly smile.  
+Curious, you decide to investigate what all the commotion is about.  
+This could be an opportunity to gather information and dabble in a 
+bit of trade with the crowd at the very least.
+</p>
+<button (click) = "this.turnPage('continue', 1)">Continue</button>
+</div>
+<!-- End of scenario part 1 -->
+
+<!-- Start of scenario part 2 -->
+<div id = "storyboard" *ngIf = "this.storyProgress === 1">
+<p><span>
+"Greetings traveler!  You seem like the enterprising sort, my 
+name is Harvey Harlington.  I enjoy a wager here and there, and 
+I'm sure an intelligent gentleman such as yourself surely prefers 
+a game of wits.  Well sir, may I interest you in a game of 21?"</span>
+</p>
+<button (click) = "this.turnPage('continue', 1)">No way</button>
+<button (click) = "this.turnPage('continue', 2)">Sure, why not?</button>
+</div>
+<!-- End of scenario part 2 -->
+
+<!-- Start of scenario part 3a -->
+<div id = "storyboard" *ngIf = "this.storyProgress === 2">
+<p><span>
+"Well, that is a shame good sir.  I bid you good day."</span>
+</p>
+<p>
+A bit disappointed, Harvey sits back down in his chair and resumes 
+his banter with his audience.  You decide to move along and 
+continue with your travels.
+</p>
+<button (click) = "this.turnPage('back', 1)">Back</button>
+</div>
+<!-- End of scenario part 3a -->
+
+<!-- Start of scenario part 3b -->
+<div id = "storyboard" *ngIf = "this.storyProgress === 3">
+<p><span>
+"Excellent!  And your name good sir?  Lupin!  Well Lupin, pull 
+up a chair and I'll explain the rules of the game."</span>
+</p>
+<p>
+You grab the chair opposite of Harvey and sit down.  You're sure 
+that this man does not play with a full deck of cards.  Whatever 
+game you play, he will likely try to take advantage of you in some 
+manner.
+</p>
+<p><span>
+"Well then, the game is simple.  We start this here counter at 0.  
+We each take turns increasing the number anywhere from 1 to 3 times each.  
+We go back and forth in this manner until the number reaches 21.  
+Whomever increases the counter to 21 will be the loser.  Simple enough, right?"</span>
+</p>
+<button (click) = "this.turnPage('continue', 1)">I got it</button>
+</div>
+<!-- End of scenario part 3b -->
+
+<!-- Start of scenario part 4 -->
+<div id = "storyboard" *ngIf = "this.storyProgress === 4">
+<p><span>
+"Now, being the magnanimous man I am, I shall even let you go first 
+since you're new to this game."</span>
+</p>
+<button (click) = "this.turnPage('continue', 3)">Accept his offer</button>
+<button (click) = "this.turnPage('continue', 1)">Insist on going last</button>
+</div>
+<!-- End of scenario part 4 -->
+
+<!-- Start of scenario part 5 -->
+<div id = "storyboard" *ngIf = "this.storyProgress === 5">
+<p>
+You gleam a sense of disgust wash over Harvey's face, but only for a 
+moment.  With the same sly smile that he greeted you with, Harvey responds 
+in kind.
+</p>
+<p><span>
+"Surely you would not waste the chance to gain the advantage in the match?  
+I offered you this handicap out of goodwill.  Will you not allow yourself to 
+gain the upperhand?"</span>
+</p>
+<button (click) = "this.turnPage('continue', 2)">I will go first after all</button>
+<button (click) = "this.playerFirstStartGame()">I'm afraid I must insist on going last</button>
+</div>
+<!-- End of scenario part 5 -->
+
+<!-- Start of scenario part 6 -->
+<div id = "storyboard" *ngIf = "this.storyProgress === 6">
+<p>
+Harvey begins to lose his composure.
+</p>
+<p><span>
+"Very well Lupin!  Do not cry when I mop the floor with you.  I tried 
+to do the gentlemanly thing and let you go first.  Now, go ahead and make your move.  
+Whatever it is, I am sure it will end in your defeat."</span>
+</p>
+<button (click) = "this.turnPage('continue', 1)">Have at you</button>
+</div>
+<!-- End of scenario part 6 -->
+
+<!-- Start of scenario computer loss -->
+<div id = "storyboard" *ngIf = "this.storyProgress === 8">
+<p>
+Harvey listlessly stares at the number 20 without saying a word.  
+It would appear that he did not expect you to see through his deception 
+so completely.  It would seem that lady luck has four-saken him in his 
+time of need.
+</p>
+<p>
+You gather your earnings, tip your cap, and head back to the main road to 
+continue your journey.
+</p>
+<button (click) = "this.playerResetGame(8)">Start over</button>
+</div>
+<!-- End of scenario computer loss -->
+
+<!-- Start of scenario computer win -->
+<div id = "storyboard" *ngIf = "this.storyProgress === 9">
+<p>
+Staring at the number 20 on the counter, you realize your 
+inevitable defeat.
+</p>
+<p><span>
+"Sorry ole bean, I'm afraid you never really had a chance.  
+Tough break."</span>
+</p>
+<button (click) = "this.playerResetGame(9)">Start over</button>
+</div>
+<!-- End of scenario computer win -->
+
+<!--Start of scenario minigame -->
+<div id = "svgContainers" *ngIf = "this.storyProgress === 7">
+<div class = "carnivalGuy">
+<img src = "assets/carnivalGuy.svg" alt = "Harvey sprite">
+</div>
+<div class = "counter">
+<span *ngIf = "this.playerHideShow">
+<div class = 'header'>
+Lupin
+</div>
+<div class = 'number'>
+<span>{{this.playerMove}}</span>
+</div>
+</span>
+
+<span *ngIf = "!this.playerHideShow">
+<div class = 'header'>
+Harvey
+</div>
+<div class = 'number'>
+<span>{{this.harveyMove}}</span>
+</div>
+</span>
+<div class = "table">
+Score: <span>{{this.number}}</span>
+<img src = "assets/table.svg" alt = "table sprite">
+</div>
+
+</div>
+
+<div class = "fetcherGuy">
+<img src = "assets/fetcherInChair.svg" alt = "fetcher sprite">
+</div>
+
+<form #nthForm = "ngForm" (ngSubmit) = "this.nthPlay()">
+<input type = "number" name = "playerMove" min = 1 max = 3 [(ngModel)] = "this.playerMove" required>
+<button type = "submit" [disabled] = "!nthForm.form.valid || !this.buttonHideShow">Take your turn</button>
+</form>
+</div>
+<!-- End of scenario minigame -->
+

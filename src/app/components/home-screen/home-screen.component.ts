@@ -31,7 +31,7 @@ export class HomeScreenComponent implements OnInit {
 		var options = Array.from(document.getElementsByClassName('options'));
 		setTimeout ( () => {
 			(<any>titles[0]).style.opacity = 1;
-			(<any>titles[0]).style.transform = "translate(0%, 20vh)";
+			(<any>titles[0]).style.transform = "translate(0%, 12vh)";
 			console.log("move attempted");
 		}, 500);
 	}

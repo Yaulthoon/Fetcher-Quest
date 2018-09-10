@@ -1,5 +1,5 @@
 #navigation {
-	position: fixed;
+	position: relative;
 	top: 0vh;
 	width: 100%;
 	height: 15vh;
@@ -65,14 +65,13 @@
 }
 
 #sideBar {
-	position: fixed;
+	position: relative;
 	box-sizing: border-box;
 	margin: 0px;
 	padding: 0px;
-	left: 0%;
-	top: 15vh;
+	float: left;
 	width: 20vw;
-	height: 100%;
+	min-height: 100%;
 	background-color: #1f1c14;
 	color: #d45500;
 	background: linear-gradient(#1f1c14, #5d543c);
@@ -116,22 +115,32 @@
 
 #content {
 	box-sizing: border-box;
-	position: fixed;
-	left: 20vw;
+	position: relative;
+	float: left;
 	width: 80vw;
-	top: 15vh;
-	margin-bottom: 5%;
 }
+
+#wrapper {
+	display: flex;
+	float: left;
+	min-height: 85vh;
+	width: 100%;
+}
+
+
 
 @media only screen and (max-width: 700px) {
 	
 	#content {
-		left: 35vw;
-		width: 70vw;
+		width: 65vw;
 	}
 	
 	#navigation a {
-		font-size: 4.5vw;
+		font-size: 3.8vw;
+	}
+	
+	#navigationContainer {
+		left: 35vw;
 	}
 	
 	#sideBar {
