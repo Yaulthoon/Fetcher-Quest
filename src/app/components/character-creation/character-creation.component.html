@@ -1,0 +1,338 @@
+<div id="navigation" (window:resize)="this.toggleNav()">
+  <a class="icon" (click)="this.toggleHideShow()"><i class="fa fa-bars"></i></a>
+  <div class="links" [ngStyle]="this.toggleNav()">
+    <a routerLink="/"><span>Title Screen</span></a>
+    <a routerLink="/about" routerLinkActive="navActive"><span>About</span></a>
+    <a routerLink="/charCreation" routerLinkActive="navActive"><span>Character Creation</span></a>
+    <a routerLink="/sideQuests" routerLinkActive="navActive"><span>Minigames</span></a>
+  </div>
+</div>
+
+<div id="wrapper">
+
+  <div class="characterCreation">
+
+    <h1><span>{{h1String}}</span></h1>
+
+    <!-- Character Creation part 0 -->
+    <div class="storyProgress0" *ngIf="this.storyProgress === 0">
+      <p>
+        You find yourself in a room that seems to expand infinitely in
+        all directions. In front of you is only a desk piled high with
+        what seem to be documents and various sundry books scattered across
+        the top.
+      </p>
+      <p><span>
+          "Welcome to Fetcher Quest, please, have a seat."
+        </span></p>
+      <p>
+        A small gentleman peers at you from above his stack of papers
+        as if he was expecting you. You look around, and seeing no
+        other alternatives, decide to have a seat in hopes that this
+        denizen of this dwelling can tell you how to return to where
+        you came from.
+      </p>
+      <p><span>
+          "Thank you. My name is Webster and I am the narrator's assistant.
+          I'm just here to administer the judgement. I know, it sounds
+          frightening. Fear not, the narrator simply enjoys his tests.
+          Quite the judgemental one, the narrator. Err...don't tell him
+          I said that though."
+        </span></p>
+      <p>
+        Webster appears to be the sort that likes to talk too much. Perhaps
+        a blabbermouth such as he should look to his own faults rather
+        than worry about the whims of his employer.
+      </p>
+      <p><span>
+          "Oh dear, he's actually here."
+        </span></p>
+      <p>
+        Seeing Webster shoot panic glances to and fro causes you to
+        instinctively do the same. The room seems both infinite and
+        confined at the same time, and though you search your surroundings,
+        you do not see a trace of where the narrator could be.
+      </p>
+      <button class="continue" (click)="this.setAttribute('continue', 1, null, 0, null, null, null)">
+        Continue
+      </button>
+    </div>
+    <!-- End of part 0 -->
+
+    <!-- Character Creation part 1 (freedom/order #1) -->
+    <div class="storyProgress1" *ngIf="this.storyProgress === 1">
+      <p>
+        After some time, Webster eventually collects himself and turns
+        back to the task at hand.
+      </p>
+      <p><span>
+          "My apologies Mr. Fetcher. Back to the reason that you're here.
+          Like I said, I am about to administer the judgment that will
+          lay the foundation for your journey. Just follow the tasks asked
+          of you and everything will turn out fine I'm sure. Probably.
+          Regardless, the judgment is the only way to leave this room."
+        </span></p>
+      <p>
+        You get the feeling that the gentleman in front of you is telling
+        the truth. With a combined sense of exasperation and dread, you
+        nod your head indicating that you are ready to get this over with.
+      </p>
+      <p><span>
+          "Thank you for your patience. Just click the button in front of
+          you to begin."
+        </span></p>
+      <p>
+        You see Webster vanish from the room leaving you alone with
+        the disembodied voice of the narrator.
+      </p>
+      <p>
+        {{pArray[resist]}}
+      </p>
+
+      <button class="back" (click)="this.rebel('pArray')" [ngStyle]="{'display': 'block'}">
+        Refuse
+      </button>
+      <button class="continue" (click)="this.setAttribute('continue', 1, 'freedomVOrder', null, 'The Judgement', null)" [ngStyle]="{'display': 'block'}">
+        Start
+      </button>
+    </div>
+    <!-- End of part 1 -->
+
+    <!-- Character Creation part 2 (freedom/order #2) -->
+    <div class="storyProgress2" *ngIf="this.storyProgress === 2">
+      <p>
+        Lets get started. Lupin Fetcher, go ahead and write your name on
+        the line below.
+      </p>
+      <form #resistForm="ngForm" (ngSubmit)="this.setAttribute('continue', 1, 'freedomVOrder', '', null, 'lupin fetcher')">
+        <input type="text" name="resist" [(ngModel)]="this.resist" placeholder="Lupin Fetcher" required>
+        <button class="continue" [ngStyle]="{'display': 'block'}" [disabled]="!resistForm.form.valid" type="submit">
+          Enter
+        </button>
+      </form>
+    </div>
+    <!-- End of part 2 -->
+
+    <!-- Character Creation part 3 (nihil/faith #1) -->
+    <div class="storyProgress3" *ngIf="this.storyProgress === 3">
+      <p>
+        True/False. At the end of the day, the majority of people
+        are good individuals.
+      </p>
+      <button class="continue" (click)="this.setAttribute('continue', 1, 'nihilVFaith', 'positive', null, null)" [ngStyle]="{'display': 'block'}">
+        True
+      </button>
+      <button class="continue" (click)="this.setAttribute('continue', 1, 'nihilVFaith', 'negative', null, null)" [ngStyle]="{'display': 'block'}">
+        False
+      </button>
+    </div>
+    <!-- End of part 3 -->
+
+    <!-- Character Creation part 4 (freedom/order #3) -->
+    <div class="storyProgress4" *ngIf="this.getStoryProgress(4, '')">
+      <p>
+        Wait a minute, I was looking away when you answered. Can
+        you go back for me and reenter your answer?
+      </p>
+      <button class="continue" (click)="this.setAttribute('continue', 1, 'freedomVOrder', 'positive', null, null)" [ngStyle]="{'display': 'block'}">
+        Back
+      </button>
+      <button class="continue" (click)="this.setAttribute('continue', 1, 'freedomVOrder', 'negative', null, null)" [ngStyle]="{'display': 'block'}">
+        Keep going
+      </button>
+    </div>
+    <!-- End of part 4 -->
+
+    <!-- Character Creation part 5 (nihil/faith #2) -->
+    <div class="storyProgress5" *ngIf="this.getStoryProgress(5, '')">
+      <p>
+        Oh, looks like I recorded your answer after all. Disregard the
+        previous request for me. It was a honest mistake, you believe me,
+        right?
+      </p>
+      <p *ngIf="this.disableButton">
+        Whoops, looks like that button is broken. Maybe try the
+        other one instead? It appears to be functioning appropriately.
+      </p>
+      <button class="stall" [disabled]="this.disableButton" (click)="this.setAttribute(null, null, 'nihilVFaith', 'negative', null, null);
+this.setAttribute(null, null, 'nihilVFaith', 'negative', null, null); this.disableButton = true;" [ngStyle]="{'display': 'block'}">
+        Nope, you're full of it.
+      </button>
+      <button class="continue" (click)="this.setAttribute('continue', 1, 'nihilVFaith', 'positive', null, null)" [ngStyle]="{'display': 'block'}">
+        Sure, no worries.
+      </button>
+    </div>
+    <!-- End of part 5 -->
+
+    <!-- Character Creation part 6 (nihil/faith #3) -->
+    <div class="storyProgress6" *ngIf="this.getStoryProgress(6, '')">
+      <p>
+        Thanks. I knew you would understand. On to the next part.
+      </p>
+      <p>
+        You are trying to reach your next destination on your map.
+        Wanting to confirm your course, you speak with a passing
+        traveler. The traveler appears to be a trader judging by his
+        horse-drawn carriage.
+        The passerby looks at your map and states that a bridge along
+        your route is undergoing maintanence, so there could be a
+        lengthy delay if you take that route. He marks a detour on
+        your map that he says will save you a day's worth of travel.
+        He draws a path that does not exist on your map and states that
+        it is a makeshift path used mainly by merchants in situations
+        such as this.
+      </p>
+      <p>
+        You thank him and make the decision to...
+      </p>
+      <button class="continue" (click)="this.setAttribute('continue', 1, 'nihilVFaith', 'positive', null, null)" [ngStyle]="{'display': 'block'}">
+        Take the suggested detour
+      </button>
+      <button class="continue" (click)="this.setAttribute('continue', 1, 'nihilVFaith', 'negative', null, null)" [ngStyle]="{'display': 'block'}">
+        Follow the path on your map
+      </button>
+    </div>
+    <!-- End of part 6 -->
+
+    <!-- Character Creation part 7 (freedom/order #4) -->
+    <div class="storyProgress7" *ngIf="this.storyProgress === 7">
+      <p>
+        Interesting answer. Okay, you'll need what I am going to say
+        next for the next trial. So make sure you type this in, so
+        you'll have the answer to the next part.
+      </p>
+      <p><span>
+          ▼(´ᴥ`)▼
+        </span></p>
+      <p>
+        Yes, copy everything you see in red. Trust me, you'll
+        need this for the next question.
+      </p>
+      <form #resistForm="ngForm" (ngSubmit)="this.setAttribute('continue', 1, 'freedomVOrder', this.resist, null, '▼(´ᴥ`)▼');
+this.setOldResist()">
+        <input type="text" name="resist" [(ngModel)]="this.resist" placeholder="▼(´ᴥ`)▼" required>
+        <button class="continue" [ngStyle]="{'display': 'block'}" [disabled]="!resistForm.form.valid" type="submit">
+          Enter
+        </button>
+      </form>
+    </div>
+    <!-- End of part 7 -->
+
+    <!-- Character Creation part 8 (nihil/faith #4) -->
+    <div class="storyProgress8" *ngIf="this.storyProgress === 8">
+      <p>
+        Little Emily has a favorite animal. All she wants to draw is
+        her favorite animal, but though she tries and tries, every
+        picture turns out as some indescribable mess. Emily's mother,
+        seeing her child become frustrated after struggling so, teaches
+        her a simple way to draw it. Emily beams at her accomplishment
+        as she copies her mother's efforts. She can now draw her favorite
+        animal all she wants. Emily shows you her picture and you
+        pat her on the head. What did the picture look like?
+      </p>
+      <p>
+        Don't worry friend, here is the correct answer, as promised: {{oldResist}}.
+      </p>
+      <p>
+        I even took the liberty of filling in the answer for you!. I'm
+        sure its the right answer cause you did just like I asked, right?
+        Great.
+      </p>
+      <form #resistForm="ngForm" (ngSubmit)="this.setAttribute('continue', 1, 'nihilVFaith', null, null, '▼(´ᴥ`)▼')">
+        <input type="text" name="resist" [(ngModel)]="this.resist" placeholder="Whoops, you deleted your answer?" required>
+        <button class="continue" [ngStyle]="{'display': 'block'}" [disabled]="!resistForm.form.valid" type="submit">
+          Enter
+        </button>
+      </form>
+    </div>
+    <!-- End of part 8 -->
+
+    <!-- Character Creation part 9 (freedom/order #5) -->
+    <div class="storyProgress9" *ngIf="this.getStoryProgress(9, '')">
+      <p>
+        We're on the home stretch now. We're getting close to the
+        beginning of your journey. We have a couple of maintanence
+        issues to take care of before begin. Perhaps you can help?
+        I need to prime the new buttons for use. Don't worry, this
+        will only take a moment of your time. Just keep clicking the test button.
+        I'll let you know when to stop.
+      </p>
+      <p>
+        {{pArray2[getResist2()]}}
+      </p>
+      <button class="back" (click)="this.rebel('pArray2')" *ngIf="this.resist2 < 9" [ngStyle]="{'display': 'block'}">
+        Test
+      </button>
+      <button class="continue" *ngIf="this.resist2 < 9" (click)="this.setAttribute('continue', 1, 'freedomVOrder', 'negative', null, null)" [ngStyle]="{'display': 'block'}">
+        Continue
+      </button>
+      <button class="continue" *ngIf="this.resist2 === 9" (click)="this.setAttribute('continue', 1, 'freedomVOrder', 'positive', null, null)" [ngStyle]="{'display': 'block'}">
+        Continue
+      </button>
+    </div>
+    <!-- End of part 9 -->
+
+    <!-- Character Creation part 10 (nihil/faith #5) -->
+    <div class="storyProgress10" *ngIf="this.storyProgress === 10">
+      <p>
+        The judgement has come to an end. Thank you for your participation
+        and understanding. The narrator values your input and would
+        appreciate it if you would answer one final question. Your answer
+        may be recorded for quality purposes. Thank you again for submitting
+        to the judgement.
+      </p>
+      <p><span>
+          I feel that the judgement had a clear intent and my answers
+          will ultimately contribute to a noticable difference in gameplay.
+        </span></p>
+      <form #resistForm="ngForm" [ngStyle]="{'position': 'relative', 'left': '5%', 'width': '90%'}" (ngSubmit)="this.toClassGenerator()">
+        <div class='radio'>
+          <input id='resist1' type="radio" name="resist" [(ngModel)]="this.resist" value=5 required>
+          <label for='resist1'>
+            Very untrue
+          </label>
+        </div>
+        <div class='radio'>
+          <input id='resist2' type="radio" name="resist" [(ngModel)]="this.resist" value=4 required>
+          <label for='resist2'>
+            Untrue
+          </label>
+        </div>
+        <div class='radio'>
+          <input id='resist3' type="radio" name="resist" [(ngModel)]="this.resist" value=3 required>
+          <label for='resist3'>
+            Neutral
+          </label>
+        </div>
+        <div class='radio'>
+          <input id='resist4' type="radio" name="resist" [(ngModel)]="this.resist" value=2 required>
+          <label for='resist4'>
+            True
+          </label>
+        </div>
+        <div class='radio'>
+          <input id='resist5' type="radio" name="resist" [(ngModel)]="this.resist" value=1 required>
+          <label for='resist5'>
+            Very true
+          </label>
+        </div>
+        <button class="continue" [ngStyle]="{'display': 'block', 'left': '-5%'}" [disabled]="!resistForm.form.valid" type="submit">
+          Enter
+        </button>
+      </form>
+
+    </div>
+
+    <!-- Progress Bar -->
+    <div class='header' *ngIf="this.storyProgress > 0 && this.storyProgress < 11">
+      <div class='progressBarWrapper'>
+        <div class='progressBar' [ngStyle]="this.progressBar()"></div>
+      </div>
+      <div class='progress'>Trial {{storyProgress}} out of 10.</div>
+    </div>
+    <!-- Progress Bar -->
+
+    <!-- End of Character Creation div -->
+  </div>
+
+</div>

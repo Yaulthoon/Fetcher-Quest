@@ -1,0 +1,134 @@
+#wrapper {
+  position: relative;
+  display: flex;
+  margin-top: 50px;
+  float: left;
+  width: 100%;
+}
+
+.classPortrait {
+  width: 17%;
+  margin-left: 10%;
+  float: left;
+}
+
+.classPortrait img {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.classPortrait h2 {
+  position: relative;
+  font-family: 'Amaranth', 'Arial';
+  font-size: 2vw;
+  color: #d45500;
+  width: 100%;
+  left: 0%;
+  text-align: center;
+}
+
+.characterCreation {
+  position: relative;
+  margin-left: 2%;
+  left: 0%;
+  width: 54%;
+}
+
+.characterCreation span, .classPortrait span {
+  border-bottom: 2px solid #d45500;
+}
+
+.characterCreation h1 {
+  font-family: 'Amaranth', 'Arial';
+  font-size: 2vw;
+  color: #d45500;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: fit-content;
+  max-width: 50%;
+}
+
+.characterCreation h2 {
+  position: relative;
+  font-family: 'Amaranth', 'Arial';
+  font-size: 2vw;
+  color: #d45500;
+  width: 50%;
+  left: 25%;
+  text-align: center;
+}
+
+.characterCreation h3 {
+  position: relative;
+  font-family: 'Amaranth', 'Arial';
+  font-size: 1.8vw;
+  color: #d45500;
+  width: 70%;
+  left: 5%;
+  margin-top: 7px;
+  margin-bottom: 0px;
+  text-align: left;
+}
+
+.characterCreation p {
+  box-sizing: border-box;
+  position: relative;
+  color: #1f1c14;
+  font-size: 1.3vw;
+  font-family: 'Arial';
+  padding: 0;
+  text-align: left;
+  left: 0%;
+  width: 90%;
+  margin: 6px 5% 15px 5%;
+  cursor: auto;
+}
+
+button {
+  position: relative;
+  left: 5%;
+  display: block;
+  box-sizing: border-box;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  background-color: #d45500;
+  font-size: 1.6vw;
+  font-family: 'Amaranth', 'Arial';
+  color: white;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 750px) {
+  #wrapper {
+    margin-top: 30px;
+  }
+
+  .classPortrait {
+    width: 25%;
+    margin-left: 5%;
+  }
+
+  .characterCreation {
+    width: 55%;
+  }
+
+  .characterCreation p {
+    font-size: 3vw;
+    margin: 5px 5% 5px 5%;
+  }
+
+  .characterCreation button {
+    font-size: 3vw;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .characterCreation h1, .characterCreation h2, .classPortrait h2 {
+    font-size: 4.5vw;
+  }
+
+  .characterCreation h3 {
+    width: 100%;
+    font-size: 4vw;
+  }
+}

@@ -1,26 +1,29 @@
-<div id = "navigation">
-<div id = "navigationContainer">
-<a routerLink = "/"><span>Title Screen</span></a>
-<a routerLink = "/about" routerLinkActive = "navActive"><span>About</span></a>
-<a routerLink = "/sideQuests"><span>Minigames</span></a>
-</div>
-</div>
-
-<div id = "wrapper">
-<div id = "sideBarWrapper">
-<div id = "sideBar">
-<a routerLink = "/about/" routerLinkActive = "navActive2" [routerLinkActiveOptions] = "{exact:true}">
-<span>What is Fetcher Quest?</span></a>
-<a routerLink = "/about/meet" routerLinkActive = "navActive2" [routerLinkActiveOptions] = "{exact:true}">
-<span>Meet Lupin Fetcher</span></a>
-<a routerLink = "/about/core" routerLinkActive = "navActive2" [routerLinkActiveOptions] = "{exact:true}">
-<span>Core Gameplay</span></a>
-<a routerLink = "/about/updates" routerLinkActive = "navActive2" [routerLinkActiveOptions] = "{exact:true}">
-<span>Latest Updates</span></a>
-</div>
+<div id="navigation" (window:resize)="this.toggleNav()">
+  <a class="icon" (click)="this.toggleHideShow()"><i class="fa fa-bars"></i></a>
+  <div class="links" [ngStyle]="this.toggleNav()">
+    <a routerLink="/"><span>Title Screen</span></a>
+    <a routerLink="/about" routerLinkActive="navActive"><span>About</span></a>
+    <a routerLink="/charCreation" routerLinkActive="navActive">
+      <span>Character Creation</span></a>
+    <a routerLink="/sideQuests"><span>Minigames</span></a>
+  </div>
 </div>
 
-<div id = "content">
-<router-outlet></router-outlet>
-</div>
+<div id="wrapper">
+  <div id="sideBarWrapper">
+    <div id="sideBar">
+      <a routerLink="/about/" routerLinkActive="navActive2" [routerLinkActiveOptions]="{exact:true}">
+        <span>Overview</span></a>
+      <a routerLink="/about/meet" routerLinkActive="navActive2" [routerLinkActiveOptions]="{exact:true}">
+        <span>Meet Lupin Fetcher</span></a>
+      <a routerLink="/about/core" routerLinkActive="navActive2" [routerLinkActiveOptions]="{exact:true}">
+        <span>Core Gameplay</span></a>
+      <a routerLink="/about/updates" routerLinkActive="navActive2" [routerLinkActiveOptions]="{exact:true}">
+        <span>Latest Updates</span></a>
+    </div>
+  </div>
+
+  <div id="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>

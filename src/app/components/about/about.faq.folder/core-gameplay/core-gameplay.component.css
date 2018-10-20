@@ -3,9 +3,12 @@ h1 {
 	font-size: 2vw;
 	color: #d45500;
 	margin-left: 3vw;
-	border-bottom: 2.5px solid #d45500;
 	width: fit-content;
 	max-width: 35%;
+}
+
+h1 span {
+	border-bottom: 2.5px solid #d45500;
 }
 
 p {
@@ -30,6 +33,12 @@ p {
 	
 	p {
 		font-size: 3vw;
-		width: 60vw;
+		width: 55vw;
+	}
+	
+	@supports (-ms-ime-align:auto)  {
+		p {
+			width: 70%;
+		}
 	}
 }

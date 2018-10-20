@@ -1,0 +1,23 @@
+<div id="wrapper">
+  <div class='classPortrait'>
+    <h2>Paladin</h2>
+    <img src='assets/class-portraits/fetcherPaladin.svg' alt='image of paladin'>
+  </div>
+  <div class='characterCreation'>
+    <h2><span>Class Perks</span></h2>
+    <h3>Passive: Detect Goodies</h3>
+    <p>
+      You know a truly kind soul when you see one. If someone is of similar
+      alignment to you, you will know it right away.
+      You will come to no harm in your interactions with them.
+    </p>
+    <h3>Active: Lay On Hands</h3>
+    <p>
+      Cost: 3HP. Once per chapter, you may cast this divine spell upon
+      yourself to heal for a fixed amount. The amount healed depends upon
+      the following formula: (Your current order + Your current faith)/2 rounded
+      up.
+    </p>
+    <button (click)="this._attributes.reset()">Reset Character Creation</button>
+  </div>
+</div>

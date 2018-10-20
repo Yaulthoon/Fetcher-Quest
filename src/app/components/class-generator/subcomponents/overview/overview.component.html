@@ -1,0 +1,143 @@
+<div id="wrapper">
+  <div class='characterCreation'>
+    <h2>The Verdict</h2>
+    <h3>Anarchy v Order: {{_attributes.alignmentFlag('freedomVOrder')}}</h3>
+    <div class='alignWrapper'>
+      <div class='min'>
+        Anarchy
+      </div>
+      <div class='alignmentBar'>
+        <input type="range" min="0" max="10" [(ngModel)]="this.freedomOrder" class="alignSlider" id="myRange" disabled>
+      </div>
+      <div class='max'>
+        Order
+      </div>
+    </div>
+    <div *ngIf="this._attributes.alignmentFlag('freedomVOrder')==='Anarchy'">
+      <p>
+        You revel in your ability to resist the status quo. Whenever you have
+        the option to sow the seeds of chaos, you eagerly disobey commands for
+        the simple reason of seeing the result of your dissention. You place
+        faith in your own abilities and do not depend on the guidance of others
+        to govern your actions. This may or may not cause you to trample on
+        the good will and freedom of others. At best you champion the rights
+        of all. At worst, you care only for your own agenda.
+      </p>
+      <p>
+        <span [ngStyle]="{'color': '#d45500'}">
+          Example Perk: The anarchy alignment allows you to take actions that
+          benefit you greatly; sometimes at the expense of others. You can also
+          make unorthodox decisions in situations where moral judgement is
+          necessary.
+        </span>
+      </p>
+    </div>
+    <div *ngIf="this._attributes.alignmentFlag('freedomVOrder')==='Neutral'">
+      <p>
+        As a neutral individual, you understand the nature of balance
+        between both freedom and order. True freedom is anarchy and leads to
+        destruction, yet oppression by its very nature does not serve the
+        greater good. You make decisions in this grey area between competing
+        forces. Or maybe you just have difficulty making up your mind?
+        We will see which sort of individual you are in the future.
+      </p>
+      <p>
+        <span [ngStyle]="{'color': '#d45500'}">
+          Example Perk: The neutral alignment allows you to see both sides of
+          an argument. You are particularly adept at avoiding confrontation.
+          While you benefit from a greater freedom of choices, you will be
+          unable to choose certain alignment-specific choices in some situations.
+        </span>
+      </p>
+    </div>
+    <div *ngIf="this._attributes.alignmentFlag('freedomVOrder')==='Order'">
+      <p>
+        You value the security of order over individual freedom. Its not that
+        you necessarily crave power itself, though that may be the case, you
+        simply dislike the chaos brought about by change or free will. Even if
+        some rules seem inane, it is better to follow them since they are
+        likely in place for a reason.
+        Because of your preference for the status quo, you are more likely
+        to adhere strictly to your ethos and judge dissenters harshly. Thanks
+        to your strong morale compass, you can act quickly in situations that
+        would give others pause.
+      </p>
+      <p>
+        <span [ngStyle]="{'color': '#d45500'}">
+          Example Perk: The order alignment grants you a firm understanding of
+          social norms allowing you to make the most "appropriate" decision in
+          certain situations.
+        </span>
+      </p>
+    </div>
+    <h3>Nihil v Faith: {{_attributes.alignmentFlag('nihilVFaith')}}</h3>
+    <div class='alignWrapper'>
+      <div class='min'>
+        Nihil
+      </div>
+      <div class='alignmentBar'>
+        <input type="range" min="0" max="10" [(ngModel)]="this.nihilFaith" class="alignSlider" id="myRange" disabled>
+      </div>
+      <div class='max'>
+        Faith
+      </div>
+    </div>
+    <div *ngIf="this._attributes.alignmentFlag('nihilVFaith')==='Nihil'">
+      <p>
+        People act according to their own interests, so you are constantly on
+        the lookout for hidden agendas. The concepts of good and evil only
+        exist to govern the individual. This does not mean that you lack an
+        empathy for others, yet you rarely act on such feelings due to your
+        distrustful nature. You heavily favor the concept of risk v reward
+        when making your decisions to approach the problems you face over
+        placing faith in individuals.
+      </p>
+      <p>
+        <span [ngStyle]="{'color': '#d45500'}">
+          Example Perk: Some call it paranoia, but you have a heightened
+          sense of the "true" nature of people. The nihil alignment grants you
+          the ability to gauge the hostility of others and can detect malicious
+          intent when others may not.
+        </span>
+      </p>
+    </div>
+    <div *ngIf="this._attributes.alignmentFlag('nihilVFaith')==='Neutral'">
+      <p>
+        The neutral individual may believe the best in others, but does not
+        always extend a hand whenever they see someone in need. Maybe you
+        help individuals on a risk v reward basis or maybe you have no rhyme
+        or reason behind the decisions you make. Some people just feel
+        worth saving while others are undeserving. Regardless of why you
+        make your decisions, you seem to operate on a sliding scale based on
+        your sense of empathy and an individual's perceived level of need.
+      </p>
+      <p>
+        <span [ngStyle]="{'color': '#d45500'}">
+          Example Perk: The neutral alignment can freely choose to help
+          individuals as they see fit. You will be able to approach most
+          situations rationally, but will lack the faith to help everyone you
+          see.
+        </span>
+      </p>
+    </div>
+    <div *ngIf="this._attributes.alignmentFlag('nihilVFaith')==='Faith'">
+      <p>
+        Though people may falter, they are ultimately good. You
+        feel that everyone may be redeemed regardless of how low they
+        may sink. Whether it is due to the faith you have in humanity, or
+        your faith in a higher power, you shine as a beacon of hope in a
+        world filled with inequity and injustice. Or maybe you're just
+        naive?
+      </p>
+      <p>
+        <span [ngStyle]="{'color': '#d45500'}">
+          Example Perk: The faith alignment grants you the ability to extend a
+          helping hand to individuals in nearly any situation. Though danger may
+          abound, you can look past the risks and help those in need. This may
+          or may not backfire in certain situations.
+        </span>
+      </p>
+    </div>
+    <button (click)="this.router.navigate([this.currentClass])">Continue</button>
+  </div>
+</div>

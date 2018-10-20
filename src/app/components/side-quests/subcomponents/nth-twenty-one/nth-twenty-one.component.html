@@ -1,5 +1,7 @@
 <h1>
+<span>
 At the 21st Hour
+</span>
 </h1>
 
 <!--Scenario part 1 -->
@@ -147,7 +149,7 @@ Tough break."</span>
 <!--Start of scenario minigame -->
 <div id = "svgContainers" *ngIf = "this.storyProgress === 7">
 <div class = "carnivalGuy">
-<img src = "assets/carnivalGuy.svg" alt = "Harvey sprite">
+<img src = "assets/carnivalGuy.svg" alt = "img = Harvey sprite">
 </div>
 <div class = "counter">
 <span *ngIf = "this.playerHideShow">
@@ -169,13 +171,13 @@ Harvey
 </span>
 <div class = "table">
 Score: <span>{{this.number}}</span>
-<img src = "assets/table.svg" alt = "table sprite">
+<img src = "assets/table.svg" alt = "">
 </div>
 
 </div>
 
 <div class = "fetcherGuy">
-<img src = "assets/fetcherInChair.svg" alt = "fetcher sprite">
+<img src = "assets/fetcherInChair.svg" alt = "img = fetcher sprite">
 </div>
 
 <form #nthForm = "ngForm" (ngSubmit) = "this.nthPlay()">

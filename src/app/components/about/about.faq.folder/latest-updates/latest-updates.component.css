@@ -3,9 +3,12 @@ h1 {
 	font-size: 2vw;
 	color: #d45500;
 	margin-left: 3vw;
-	border-bottom: 2.5px solid #d45500;
 	width: fit-content;
 	max-width: 25%;
+}
+
+h1 span {
+	border-bottom: 2.5px solid #d45500;
 }
 
 p {
@@ -15,7 +18,7 @@ p {
 	font-size: 1.3vw;
 	font-family: 'Arial';
 	padding: 0;
-	margin: 1.5vw 3vw 0px 0vw;
+	margin: 1.5vw 3vw 2vw 0vw;
 	text-align: left;
 	left: 3vw;
 	width: 74vw;
@@ -48,6 +51,12 @@ h2 {
 	
 	p {
 		font-size: 3vw;
-		width: 60vw;
+		width: 55vw;
+	}
+	
+	@supports (-ms-ime-align:auto)  {
+		p {
+			width: 70%;
+		}
 	}
 }

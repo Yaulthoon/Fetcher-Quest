@@ -1,0 +1,23 @@
+<div id="wrapper">
+  <div class='classPortrait'>
+    <h2>Judge</h2>
+    <img src='assets/class-portraits/fetcherJudge.svg' alt='image of judge'>
+  </div>
+  <div class='characterCreation'>
+    <h2><span>Class Perks</span></h2>
+    <h3>Passive: Law of the Land</h3>
+    <p>
+      You are at the forefront in the field of expectations. You will identify
+      when a situation diverges from the given norms. You can also sense
+      malicious intent from most individuals.
+    </p>
+    <h3>Active: Equivalent Exchange</h3>
+    <p>
+      Cost: 2HP. Once per chapter, sacrifice 2HP to the scales of justice.
+      Either lose the initial cost of your action or gain 2 additional HP.
+      Chance of success increases based on your current order score.
+      Cannot heal for over your maximum HP.
+    </p>
+    <button (click)="this._attributes.reset()">Reset Character Creation</button>
+  </div>
+</div>
