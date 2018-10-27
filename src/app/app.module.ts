@@ -22,6 +22,8 @@ import { LatestUpdatesComponent } from './components/about/about.faq.folder/late
 import { SideQuestsComponent } from './components/side-quests/side-quests.component';
 import { MagicSquareComponent } from './components/side-quests/subcomponents/magic-square/magic-square.component';
 import { NthTwentyOneComponent } from './components/side-quests/subcomponents/nth-twenty-one/nth-twenty-one.component';
+import { KindOfSlushComponent } from './components/side-quests/subcomponents/kind-of-slush/kind-of-slush.component';
+
 import { CharacterCreationComponent } from './components/character-creation/character-creation.component';
 
 import { ClassGeneratorComponent } from './components/class-generator/class-generator.component';
@@ -35,7 +37,6 @@ import { RogueComponent } from './components/class-generator/subcomponents/rogue
 import { BarbedbarianComponent } from './components/class-generator/subcomponents/barbedbarian/barbedbarian.component';
 import { JudgeComponent } from './components/class-generator/subcomponents/judge/judge.component';
 import { ZealotComponent } from './components/class-generator/subcomponents/zealot/zealot.component';
-
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ZealotComponent } from './components/class-generator/subcomponents/zeal
     RogueComponent,
     BarbedbarianComponent,
     JudgeComponent,
-    ZealotComponent
+    ZealotComponent,
+    KindOfSlushComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,108 @@
+<h1><span>A Kind of Slush</span></h1>
+<p>Oh my, it seems that the bridge has caved in from the weight of the snow
+  from the latest blizzard. There's no way across for miles and you must
+  find your way across the lake. Your only option is to hop across the larger
+  sheets of ice to the other side, but be careful not to trap yourself while
+  doing so.
+</p>
+<p>
+  Each jump you make causes the larger blocks of ice to sink below the surface
+  while the smaller blocks rise to the surface. Think carefully before making
+  each move or you may find yourself stranded in the middle of the lake!
+</p>
+<p>
+  Objective: Start from the bottom of the lake and make it to the bridge
+  at the opposite end.
+</p>
+<div *ngIf="this.winCondition !== ''">
+  <p>
+    {{winCondition}}
+  </p>
+  <button (click)="this.resetGame()" [ngStyle]="{'left': '3.5%', 'position':'relative'}">
+    Try Again
+  </button>
+</div>
+
+<div class="endBridge"></div>
+<div class="iceBlockContainer">
+  <div class='iceBlocks'>
+    <img #img1 [src]="this.determineImg(img1.src, this.inactiveBlock)" (click)="this.move(img1, 1)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img2 [src]="this.determineImg(img2.src, this.inactiveBlock)" (click)="this.move(img2, 2)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img3 [src]="this.determineImg(img3.src, this.activeBlock)" (click)="this.move(img3, 3)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img4 [src]="this.determineImg(img4.src, this.activeBlock)" (click)="this.move(img4, 4)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img5 [src]="this.determineImg(img5.src, this.inactiveBlock)" (click)="this.move(img5, 5)">
+  </div>
+
+  <div class='iceBlocks'>
+    <img #img6 [src]="this.determineImg(img6.src, this.activeBlock)" (click)="this.move(img6, 6)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img7 [src]="this.determineImg(img7.src, this.inactiveBlock)" (click)="this.move(img7, 7)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img8 [src]="this.determineImg(img8.src, this.activeBlock)" (click)="this.move(img8, 8)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img9 [src]="this.determineImg(img9.src, this.inactiveBlock)" (click)="this.move(img9, 9)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img10 [src]="this.determineImg(img10.src, this.activeBlock)" (click)="this.move(img10, 10)">
+  </div>
+
+  <div class='iceBlocks'>
+    <img #img11 [src]="this.determineImg(img11.src, this.inactiveBlock)" (click)="this.move(img11, 11)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img12 [src]="this.determineImg(img12.src, this.activeBlock)" (click)="this.move(img12, 12)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img13 [src]="this.determineImg(img13.src, this.activeBlock)" (click)="this.move(img13, 13)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img14 [src]="this.determineImg(img14.src, this.inactiveBlock)" (click)="this.move(img14, 14)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img15 [src]="this.determineImg(img15.src, this.activeBlock)" (click)="this.move(img15, 15)">
+  </div>
+
+  <div class='iceBlocks'>
+    <img #img16 [src]="this.determineImg(img16.src, this.activeBlock)" (click)="this.move(img16, 16)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img17 [src]="this.determineImg(img17.src, this.inactiveBlock)" (click)="this.move(img17, 17)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img18 [src]="this.determineImg(img18.src, this.inactiveBlock)" (click)="this.move(img18, 18)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img19 [src]="this.determineImg(img19.src, this.activeBlock)" (click)="this.move(img19, 19)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img20 [src]="this.determineImg(img20.src, this.inactiveBlock)" (click)="this.move(img20, 20)">
+  </div>
+
+  <div class='iceBlocks'>
+    <img #img21 [src]="this.determineImg(img21.src, this.inactiveBlock)" (click)="this.move(img21, 21)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img22 [src]="this.determineImg(img22.src, this.activeBlock)" (click)="this.move(img22, 22)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img23 [src]="this.determineImg(img23.src, this.activeBlock)" (click)="this.move(img23, 23)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img24 [src]="this.determineImg(img24.src, this.inactiveBlock)" (click)="this.move(img24, 24)">
+  </div>
+  <div class='iceBlocks'>
+    <img #img25 [src]="this.determineImg(img25.src, this.inactiveBlock)" (click)="this.move(img25, 25)">
+  </div>
+</div>
+<div class='startBridge'></div>

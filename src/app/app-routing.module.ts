@@ -12,6 +12,7 @@ import { LatestUpdatesComponent } from './components/about/about.faq.folder/late
 import { SideQuestsComponent } from './components/side-quests/side-quests.component';
 import { MagicSquareComponent } from './components/side-quests/subcomponents/magic-square/magic-square.component';
 import { NthTwentyOneComponent } from './components/side-quests/subcomponents/nth-twenty-one/nth-twenty-one.component';
+import { KindOfSlushComponent } from './components/side-quests/subcomponents/kind-of-slush/kind-of-slush.component';
 
 import { CharacterCreationComponent } from './components/character-creation/character-creation.component';
 
@@ -99,6 +100,10 @@ const routes: Routes = [
       {
         path: 'twenty-one',
         component: NthTwentyOneComponent
+      },
+      {
+        path: 'kind-of-slush',
+        component: KindOfSlushComponent
       }
     ]
   },

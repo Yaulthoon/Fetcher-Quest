@@ -98,6 +98,10 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  color: #1f1c14;
+}
+
 @media only screen and (max-width: 750px) {
   #wrapper {
     margin-top: 30px;
