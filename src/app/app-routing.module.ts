@@ -13,6 +13,8 @@ import { SideQuestsComponent } from './components/side-quests/side-quests.compon
 import { MagicSquareComponent } from './components/side-quests/subcomponents/magic-square/magic-square.component';
 import { NthTwentyOneComponent } from './components/side-quests/subcomponents/nth-twenty-one/nth-twenty-one.component';
 import { KindOfSlushComponent } from './components/side-quests/subcomponents/kind-of-slush/kind-of-slush.component';
+import { TheRefinersFireComponent } from './components/side-quests/subcomponents/the-refiners-fire/the-refiners-fire.component';
+
 
 import { CharacterCreationComponent } from './components/character-creation/character-creation.component';
 
@@ -104,6 +106,10 @@ const routes: Routes = [
       {
         path: 'kind-of-slush',
         component: KindOfSlushComponent
+      },
+      {
+        path: 'the-refiners-fire',
+        component: TheRefinersFireComponent
       }
     ]
   },

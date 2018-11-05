@@ -383,10 +383,13 @@ input[type=range]::-ms-track {
 }
 
 .progressBarWrapper {
-  border: 1.5px solid #1f1c14;
+  border: 2px solid #1f1c14;
 }
 
 .progressBar {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   height: 15px;
   background: linear-gradient(to right, #d45500, #ff8533);
 }

@@ -1,0 +1,201 @@
+<h1><span>The Refiner's Fire</span></h1>
+<div class='storyBlock' *ngIf="this.storyProgress === 0">
+  <p>
+    As you're traveling, you take out your map and notice the path you are
+    following loops around a small forest. You wonder why the laborers
+    chose to lay the road in the manner that they did rather than cutting
+    through the forest itself. Judging from your prior walking speed, and
+    utilizing the scale on your map, you estimate that walking straight through
+    the forest would save you at least a day's worth of travel.
+  </p>
+  <p>
+    Unfamiliar with the area, you have no reason not to believe this is any more
+    dangerous than any other forest you've encountered. You ultimately decide
+    to:
+    <button (click)="this.progressStory(1, 'continue')">
+      Follow the path
+    </button>
+    <button (click)="this.progressStory(2, 'continue')">
+      Proceed through the forest
+    </button>
+  </p>
+</div>
+
+<div class='storyBlock' *ngIf="this.storyProgress === 1">
+  <p>
+    Feeling well-rested and stocked with a healthy amount of provisions, you
+    decide that there is no reason to risk venturing into an unknown forest. You
+    decide to continue along the path.
+    <button (click)="this.progressStory(1, 'back')">
+      Back
+    </button>
+  </p>
+</div>
+
+<div class='storyBlock' *ngIf="this.storyProgress === 2">
+  <p>
+    As you progress through the forest, the flora and fauna appear ordinary
+    enough. You hear the sounds of the occasional bird chirping or
+    squirrel bustling along the tree branches above you. You come across a few
+    deer as well which do not seem to shy away from your presence. Few people
+    must enter this forest. While disconcerting, it is not uncommon for local
+    townfolk to spread superstitions about places that cause others to avoid
+    an otherwise safe passage out of habit.
+  </p>
+  <p>
+    A few hours pass and you get the feeling that you are roughly half way
+    through the forest at this point. Spotting a small clearing ahead, you
+    figure it a good place to set up a small camp for lunch; however, as you
+    approach the clearing, you see that the ground surrounding it has been
+    scorched.
+  </p>
+  <p>
+    Taking caution to avoid any potential traps, you scan the area and find no
+    signs of anything that could have caused such a fire. The
+    clearing seems to have contained the fire within itself. This fire appears
+    unnatural as if triggered by some form of magic. Just as you ponder this,
+    you see what appears to be a charred body on the ground near the center
+    of the clearing. You figure the individual could have been the one that caused the
+    fire. Whatever they used to create such an explosion, whether spell
+    components or magical device, could be quite valuable were you to recover
+    them. Mulling it over, you decide to:
+    <button (click)="this.progressStory(1, 'continue')">
+      Avoid the clearing
+    </button>
+    <button (click)="this.progressStory(2, 'continue')">
+      Investigate further
+    </button>
+  </p>
+</div>
+
+<div class='storyBlock' *ngIf="this.storyProgress === 3">
+  <p>
+    Whatever it is that killed the person within that circle is clearly
+    dangerous and not to be trifled with. Exercising a healthy dose of
+    caution, you decide not to press your luck and continue onward.
+    <button (click)="this.progressStory(1, 'back')">
+      Back
+    </button>
+  </p>
+</div>
+
+<div class='storyBlock' *ngIf="this.storyProgress === 4">
+  <p>
+    As you rummage through the campsite, you discover a small tablet in the
+    victim's hand. As you reach to pull the tablet from the hand, the hand
+    disintegrates into nothing more than black dust. Inspecting the tablet more
+    closely, you notice innumerable small holes in the tablet itself.
+    You try to peer inside; however, the holes are too small to discern what
+    their purpose could be.
+  </p>
+  <p>
+    When you turn the tablet right-side-up, you notice a small passage at the
+    top followed by various gauges and knobs below. The passage reads:
+  </p>
+  <p><span [ngStyle]="{'text-align': 'center'}">
+      To each their own they dare to say,
+      but fire soon shall make them pay;
+      unless equal share of sin they weigh.
+    </span></p>
+  <p>
+    The passage must refer to the contraption at the bottom of the puzzle.
+    Perhaps solving it would reveal the secrets of the tablet you hold
+    in your hand?
+    <button (click)="this.progressStory(1, 'continue')">
+      Continue
+    </button>
+  </p>
+</div>
+
+<div class='storyBlock' *ngIf="this.storyProgress === 5">
+  <p>
+    {{announcer}}
+  </p>
+  <div class='refinerContainer'>
+    <div class='capacitor' [ngStyle]="this.capacitorHeight(this.capacitor1)">
+      <div class='capacitorFill' [ngStyle]="this.fillCapacitor(this.capacitor1)">
+      </div>
+    </div>
+    <i class="fa fa-arrow-right" (click)="this.pour(this.capacitor2, this.capacitor1)"></i>
+    <i class="fa fa-arrow-left" (click)="this.pour(this.capacitor1, this.capacitor2)"></i>
+    <div class='capacitor' [ngStyle]="this.capacitorHeight(this.capacitor2)">
+      <div class='capacitorFill' [ngStyle]="this.fillCapacitor(this.capacitor2)">
+      </div>
+    </div>
+    <i class="fa fa-arrow-right" (click)="this.pour(this.capacitor3, this.capacitor2)"></i>
+    <i class="fa fa-arrow-left" (click)="this.pour(this.capacitor2, this.capacitor3)"></i>
+    <div class='capacitor' [ngStyle]="this.capacitorHeight(this.capacitor3)">
+      <div class='capacitorFill' [ngStyle]="this.fillCapacitor(this.capacitor3)">
+      </div>
+    </div>
+    <i class="fa fa-arrow-right" (click)="this.pour(this.capacitor4, this.capacitor3)"></i>
+    <i class="fa fa-arrow-left" (click)="this.pour(this.capacitor3, this.capacitor4)"></i>
+    <div class='capacitor' [ngStyle]="this.capacitorHeight(this.capacitor4)">
+      <div class='capacitorFill' [ngStyle]="this.fillCapacitor(this.capacitor4)">
+      </div>
+    </div>
+  </div>
+  <div class='refinerContainer2' [ngStyle]="{'margin-top': '2px'}">
+    <div class='capacitorLabel'>
+      {{capacitor1.getCurrent()}}
+      <hr>
+      {{capacitor1.getMaximum()}}
+    </div>
+    <div class='capacitorLabel'>
+      {{capacitor2.getCurrent()}}
+      <hr>
+      {{capacitor2.getMaximum()}}
+    </div>
+    <div class='capacitorLabel'>
+      {{capacitor3.getCurrent()}}
+      <hr>
+      {{capacitor3.getMaximum()}}
+    </div>
+    <div class='capacitorLabel'>
+      {{capacitor4.getCurrent()}}
+      <hr>
+      {{capacitor4.getMaximum()}}
+    </div>
+  </div>
+  <p>
+    <button (click)="this.solve()">
+      Solve
+    </button>
+  </p>
+</div>
+
+<div class='storyBlock' *ngIf="this.storyProgress === 6">
+  <p>
+    The tablet immediately begins to heat up in your hand.
+    Remembering what became of the corpse, you throw the tablet away quickly
+    right before it ignites the surrounding area. You manage to avoid
+    part of the explosion, but you still end up getting caught up in it.
+    You take burning damage due to failing the puzzle. Something must have went
+    wrong.
+  </p>
+  <p>
+    You reflect on the words engraved on the tablet. Perhaps <strong>all the containers
+      must contain the same amount of liquid at the same time.</strong> It seems that it
+    should not take much more than about 9 moves to complete the puzzle.
+    You consider if it is worth trying to open the tablet again.
+    <button (click)="this.progressStory(1, 'back')">
+      Try again
+    </button>
+    <button (click)="this.progressStory(1, 'continue')">
+      Move on
+    </button>
+  </p>
+</div>
+
+<div class='storyBlock' *ngIf="this.storyProgress === 7">
+  <p>
+    You think back on the words that someone once told you: "Fool me once, shame
+    on me. Fool me twice...you aren't going to fool me twice." You cannot help
+    but think that is not how the real quote is supposed to go, but you also feel
+    that the saying is somehow applicable to your situation and carry on your
+    journey through the forest a bit worse for wear.
+    <button (click)="this.progressStory(2, 'back')">
+      Back to puzzle
+    </button>
+  </p>
+</div>

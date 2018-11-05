@@ -13,6 +13,7 @@ export class KindOfSlushComponent implements OnInit {
   inactiveBlock: String = "assets/ice-puzzle/inactiveBlock.svg";
   activeBlock: String = "assets/ice-puzzle/activeBlock.svg";
   currentBlock: String = "assets/ice-puzzle/currentBlock.svg";
+  oldNeighbors;
   winCondition: String = "";
   loss: boolean = false;
   numOfMoves = 0;
@@ -94,7 +95,12 @@ export class KindOfSlushComponent implements OnInit {
     return neighbors;
   }
 
-  adjustNeighbors(neighbors) {
+  adjustNeighbors(neighbors, oldNeighbors) {
+    if (oldNeighbors !== null) {
+      for (var oldNeighbor of oldNeighbors) {
+        oldNeighbor.style.cursor = 'auto';
+      }
+    }
     for (var neighbor of neighbors) {
       const img = neighbor.src.substring(neighbor.src.indexOf('assets'));
       if (img === this.activeBlock || img === this.currentBlock) {
@@ -110,7 +116,7 @@ export class KindOfSlushComponent implements OnInit {
   firstMove(value, num, neighbors) {
     if (num === 22 || num === 23) {
       value.src = "assets/ice-puzzle/currentBlock.svg";
-      this.adjustNeighbors(neighbors);
+      this.adjustNeighbors(neighbors, null);
       this.numOfMoves += 1;
       console.log('first turn has been made');
     } else {
@@ -137,8 +143,11 @@ export class KindOfSlushComponent implements OnInit {
     if (winCon[2].src.substring(winCon[2].src.indexOf('assets')) === this.currentBlock) {
       this.winCondition = "Well done! For reference, it took you " +
         this.numOfMoves + " moves to get across.";
-      if (this.numOfMoves > 14) {
-        this.winCondition += " Think you can get it down to 14 moves?";
+      if (this.numOfMoves > 13) {
+        this.winCondition += " Think you can get it down to 13 moves?";
+      }
+      if (this.numOfMoves === 13) {
+        this.winCondition += " Nicely done!  Thirteen is the best solution that I know of!";
       }
       return true;
     }
@@ -175,21 +184,22 @@ export class KindOfSlushComponent implements OnInit {
       }
       if (this.numOfMoves === 0) {
         this.firstMove(value, num, neighbors);
+        this.oldNeighbors = neighbors;
         return;
       } else {
-        console.log('this made it past the first move barrier');
         if (validMove) {
           if (pathway === "assets/ice-puzzle/activeBlock.svg") {
             console.log('turn into inactive');
             value.src = "assets/ice-puzzle/currentBlock.svg";
             value.style.cursor = "auto";
-            this.adjustNeighbors(neighbors);
+            this.adjustNeighbors(neighbors, this.oldNeighbors);
             console.log(neighbors);
           } else if (pathway === "assets/ice-puzzle/inactiveBlock.svg") {
             console.log('illegal move, try again');
           }
         }
       }
+      this.oldNeighbors = neighbors;
       this.numOfMoves = this.numOfMoves + 1;
       this.checkLoss(neighbors);
       this.checkWin();
