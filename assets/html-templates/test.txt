@@ -1,0 +1,3 @@
+<button (click)="this.testLoad()">
+  testing
+</button>
