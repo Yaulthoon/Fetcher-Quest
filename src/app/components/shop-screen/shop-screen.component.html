@@ -1,0 +1,90 @@
+<h3>
+  <span>
+    Saving Grace's
+  </span>
+</h3>
+
+<div class="container">
+  <img src="assets/shop/fetcherShopkeep.svg" alt="shopkeep">
+  <div class='shopDialogue' [innerHTML]="this._strings.shopkeep">
+  </div>
+  <table *ngIf="!this.checkout">
+    <tr>
+      <th>Item</th>
+      <th>Cost</th>
+      <th>Use</th>
+      <th>Description</th>
+    </tr>
+    <tr (click)="this.addToCart('bandages', 'bandage')">
+      <td>
+        <img src="assets/shop/fetcherBandage.svg">
+        <p>Bandage</p>
+      </td>
+      <td>25g</td>
+      <td>Cures Injury</td>
+      <td>Specialized medical cloth. Single use.</td>
+    </tr>
+    <tr (click)="this.addToCart('supplies', 'supplies')">
+      <td>
+        <img src="assets/shop/fetcherSupplies.svg">
+        <p>Supplies</p>
+      </td>
+      <td>15g</td>
+      <td>Health & Travel</td>
+      <td>Essential for travel and healing at campsites.</td>
+    </tr>
+    <tr (click)="this.addToCart('bandagesStack', 'bandage pack')">
+      <td>
+        <img src="assets/shop/fetcherBandageStack.svg">
+        <p>Bandage Pack</p>
+      </td>
+      <td>60g</td>
+      <td>3 Bandages</td>
+      <td>Save some money by buying in bulk!</td>
+    </tr>
+    <tr (click)="this.addToCart('suppliesStack', 'supply pack')">
+      <td>
+        <img src="assets/shop/fetcherSuppliesStack.svg">
+        <p>Supply Pack</p>
+      </td>
+      <td>120g</td>
+      <td>10 Supplies</td>
+      <td>Save some money by buying in bulk!</td>
+    </tr>
+    <tr [ngStyle]="{'cursor': 'default'}">
+      <td>
+        <p>Total:</p>
+      </td>
+      <td>{{this.total()}}g</td>
+      <td colspan="2" [ngStyle]="{'text-align': 'right', 'padding-right': '15px', 'vertical-align': 'middle'}"><span class='faHover' (click)="this.toCheckout()" [ngStyle]="{'cursor':'pointer'}">Saving Grace's <i class="fa fa-shopping-cart"
+            aria-hidden="true"></i></span></td>
+    </tr>
+  </table>
+  <div class="checkout" *ngIf="this.checkout">
+    <h4>
+      Your Cart
+    </h4>
+    <div *ngFor="let item of this.shoppingCart; index as i">
+      <p *ngIf="this[item[1]] > 0">
+        {{item[0]}}: x{{this[item[1]]}}
+      </p>
+      <i class="fa fa-plus-circle" (click)="this.addToCart(item[1], item[0].toLowerCase())" *ngIf="this[item[1]] > 0" aria-hidden="true"></i>
+      <i class="fa fa-minus-circle" (click)="this.minusFromCart(item[1], item[0].toLowerCase())" *ngIf="this[item[1]] > 0" aria-hidden="true"></i>
+      <i class="fa fa-times-circle-o" (click)="this.removeFromCart(item[1], item[0].toLowerCase())" *ngIf="this[item[1]] > 0" aria-hidden="true"></i>
+    </div>
+    <footer>
+      <div class='subfooter'>
+        Total: {{this.total()}}g
+      </div>
+      <div class='subfooter'>
+        <button (click)="this.purchase()">
+          Checkout
+        </button>
+      </div>
+      <div class='subfooter'>
+        <button (click)="this.toShop()">
+          Shop Menu
+        </button>
+      </div>
+    </footer>
+  </div>

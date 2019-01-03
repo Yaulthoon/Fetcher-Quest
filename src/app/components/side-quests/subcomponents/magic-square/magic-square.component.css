@@ -291,6 +291,204 @@ button:hover {
   background: #bfb8a2;
 }
 
+.contentWrapper {
+  position: relative;
+  left: 0%;
+  width: 104%;
+}
+
+#content {
+  position: fixed;
+  display: block;
+  box-sizing: border-box;
+  width: 84vw;
+  left: 15vw;
+  bottom: 0%;
+  z-index: 10;
+  overflow: hidden;
+  border-top: 4px solid #1f1c14;
+  padding-top: 5px;
+  background: #ffffff;
+}
+
+.imageContainers {
+  position: relative;
+  display: inline-block;
+  left: 0%;
+  width: 65%;
+  vertical-align: top;
+  padding-bottom: 5px;
+}
+
+.images {
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.choice {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 14%;
+  margin-right: 2%;
+  vertical-align: bottom;
+}
+
+.choice:first-child {
+  margin-left: 2%;
+}
+
+.choice img {
+  display: inline-block;
+  width: 100%;
+  height: 7vw;
+  border: 2px solid black;
+}
+
+.mysteryText {
+  display: inline-block;
+  width: 10%;
+  margin-left: 3%;
+  text-align: center;
+  vertical-align: top;
+  margin-top: 2.5%;
+  font: 1.5vw "Amaranth";
+  text-align: center;
+  color: #d45500;
+}
+
+.mystery {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0;
+  width: 10%;
+  margin-left: 1.5%;
+  text-align: center;
+}
+
+.mystery .tooltiptext {
+  visibility: hidden;
+  background-color: #1f1c14;
+  color: white;
+  font: 10pt "Amaranth";
+  text-align: center;
+  border-radius: 6px;
+  padding: 3px;
+  position: absolute;
+  z-index: 1;
+  margin-left: 0%;
+  top: 65%;
+}
+
+.mystery:hover .tooltiptext {
+  visibility: visible;
+}
+
+.mystery:active .tooltiptext {
+  visibility: visible;
+}
+
+.mystery img {
+  width: 75%;
+  border: 2px solid black;
+}
+
+.choice label, .mystery label {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  font-family: 'Amaranth', 'Arial';
+  font-size: 1.3vw;
+  color: #d45500;
+  text-align: center;
+}
+
+.murderMystery {
+  width: 100%;
+  position: relative;
+  left: 0%;
+  margin-top: 0;
+}
+
+.murderMystery ol {
+  position: relative;
+  left: 5%;
+  font-family: 'Arial';
+  font-size: 1.3vw;
+  color: #000075;
+}
+
+.murderMystery li {
+  margin-bottom: 10px;
+  margin-right: 12%;
+}
+
+.murderMystery .right {
+  position: relative;
+  left: 75%;
+}
+
+.murderImageContainer {
+  width: 20%;
+  display: inline-block;
+  left: 0%;
+  position: relative;
+}
+
+.murderImageContainer p {
+  font-family: 'Amaranth', 'Arial';
+  font-size: 1.8vw;
+  color: #d45500;
+  margin-top: 0;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.murderContentContainer {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 75%;
+  box-sizing: border-box;
+}
+
+.murderContentContainer p {
+  margin-top: 1.8vw;
+  text-align: left;
+  left: 0%;
+  font-family: Arial;
+  font-size: 1.4vw;
+}
+
+.murderContentContainer span {
+  display: block;
+  margin-bottom: 7px;
+  color: #1f1c14;
+}
+
+.murderMystery img {
+  width: 80%;
+  left: 10%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.turnCounter {
+  position: absolute;
+  top: 0;
+  left: 60%;
+  font-family: 'Amaranth', 'Arial';
+  font-size: 1.3vw;
+  color: #d45500;
+  width: 35%;
+  text-align: center;
+}
+
 @media only screen and (max-width: 780px) {
   .refinerContainer, .refinerContainer2 {
     left: 5%;
@@ -324,6 +522,123 @@ button:hover {
   .fa.fa-arrow-right {
     margin-right: 3%;
   }
+
+  .murderMystery ol {
+    left: 0%;
+    margin-right: 10%;
+    font-size: 3.2vw;
+  }
+
+  .murderMystery li {
+    margin-right: 10%;
+  }
+
+  .murderMystery .right {
+    left: 50%;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  #content {
+    left: 30vw;
+    width: 69vw;
+  }
+
+  .choice label {
+    font-size: 2vw;
+  }
+
+  .mysteryText {
+    font-size: 2.2vw;
+    margin-right: 8%;
+    margin-left: 1.5%;
+  }
+
+  .murderMystery img {
+    left: 0%;
+    width: 100%;
+  }
+
+  .murderMystery p, .murderContentContainer p {
+    font-size: 3.2vw;
+  }
+
+  .murderImageContainer {
+    width: 25%;
+  }
+
+  .murderImageContainer p, .turnCounter {
+    font-size: 2.5vw;
+  }
+
+  .murderImageContainer span {
+    font-size: 3.2vw;
+  }
+
+  .murderContentContainer span {
+    width: 70%;
+    margin-bottom: 4px;
+  }
+
+  .murderContentContainer {
+    width: 70%;
+  }
+
+  @media (orientation: landscape) {
+    #content {
+      position: relative;
+      left: 0%;
+      margin-top: 15px;
+    }
+
+    .choice {
+      margin-left: 59%;
+    }
+
+    .imageContainers {
+      display: block;
+      left: 0%;
+      width: 90%;
+    }
+
+    .mystery, .mysteryText {
+      width: 12%;
+    }
+
+    .mysteryText {
+      margin-right: 2%;
+    }
+
+    .mystery img {
+      width: 100%;
+    }
+  }
+
+  @media (orientation: portrait) {
+    .imageContainers {
+      display: block;
+      left: 0%;
+      width: 100%;
+    }
+
+    .choice {
+      margin-left: 59%;
+    }
+
+    .mysteryText {
+      margin-right: 2%;
+      margin-top: 4%;
+    }
+
+    .mystery {
+      width: 13%;
+      margin-left: 0.5%;
+    }
+
+    .mystery img {
+      width: 85%;
+    }
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -335,7 +650,7 @@ button:hover {
   h1 {
     left: 0%;
     font-size: 4.5vw;
-    max-width: 60%;
+    max-width: 80%;
   }
 
   p, .error {

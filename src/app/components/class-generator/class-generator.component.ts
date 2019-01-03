@@ -47,7 +47,7 @@ export class ClassGeneratorComponent implements OnInit {
       }
     }
     if (this.authNum === 0) {
-      this.router.navigate(['charCreation']);
+      this.router.navigate(['character-creation']);
       console.log('Character creation was NOT completed');
     }
   }

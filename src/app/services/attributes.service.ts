@@ -9,6 +9,9 @@ import { CharacterClass } from '../../utils/character-class';
 })
 export class AttributesService {
 
+  progressDistance: number = 0;
+  completedStops: number = 0;
+
   freedomVOrder = new BehaviorSubject(5);
   nihilVFaith = new BehaviorSubject(5);
 
@@ -29,18 +32,18 @@ export class AttributesService {
   druid = new CharacterClass();
   paladin = new CharacterClass();
 
-  currentClass;
+  currentClass = this.tumblemancer;
 
   constructor(private router: Router) {
-    this.tumblemancer.setClass('tumblemancer');
-    this.rogue.setClass('rogue');
-    this.barbedbarian.setClass('barbedbarian');
-    this.mercenary.setClass('mercenary');
-    this.lupin.setClass('lupin');
-    this.zealot.setClass('zealot');
-    this.druid.setClass('druid');
-    this.paladin.setClass('paladin');
-    this.judge.setClass('judge');
+    this.tumblemancer.setClass('Tumblemancer');
+    this.rogue.setClass('Rogue');
+    this.barbedbarian.setClass('Barbedbarian');
+    this.mercenary.setClass('Mercenary');
+    this.lupin.setClass('Lupin');
+    this.zealot.setClass('Zealot');
+    this.druid.setClass('Druid');
+    this.paladin.setClass('Paladin');
+    this.judge.setClass('Judge');
   }
 
   reset() {

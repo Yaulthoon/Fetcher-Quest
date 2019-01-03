@@ -8,8 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { Observable, Subject, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { ActiveLinkService } from './services/active-link.service';
 import { AttributesService } from './services/attributes.service';
+import { ActiveQuestService } from './services/active-quest.service';
 
 import { HomeScreenComponent } from './components/home-screen/home-screen.component';
 
@@ -24,6 +24,10 @@ import { MagicSquareComponent } from './components/side-quests/subcomponents/mag
 import { NthTwentyOneComponent } from './components/side-quests/subcomponents/nth-twenty-one/nth-twenty-one.component';
 import { KindOfSlushComponent } from './components/side-quests/subcomponents/kind-of-slush/kind-of-slush.component';
 import { TheRefinersFireComponent } from './components/side-quests/subcomponents/the-refiners-fire/the-refiners-fire.component';
+import { IlltimedTenureComponent } from './components/side-quests/subcomponents/illtimed-tenure/illtimed-tenure.component';
+
+import { MiniquestsComponent } from './components/side-quests/subcomponents/miniquests/miniquests.component';
+import { RealBeggarComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/real-beggar/real-beggar.component';
 
 import { CharacterCreationComponent } from './components/character-creation/character-creation.component';
 
@@ -38,6 +42,12 @@ import { RogueComponent } from './components/class-generator/subcomponents/rogue
 import { BarbedbarianComponent } from './components/class-generator/subcomponents/barbedbarian/barbedbarian.component';
 import { JudgeComponent } from './components/class-generator/subcomponents/judge/judge.component';
 import { ZealotComponent } from './components/class-generator/subcomponents/zealot/zealot.component';
+
+import { TravelScreenComponent } from './components/travel-screen/travel-screen.component';
+
+import { EventScreenComponent } from './components/event-screen/event-screen.component';
+
+import { ShopScreenComponent } from './components/shop-screen/shop-screen.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +74,13 @@ import { ZealotComponent } from './components/class-generator/subcomponents/zeal
     JudgeComponent,
     ZealotComponent,
     KindOfSlushComponent,
-    TheRefinersFireComponent
+    TheRefinersFireComponent,
+    IlltimedTenureComponent,
+    TravelScreenComponent,
+    EventScreenComponent,
+    MiniquestsComponent,
+    RealBeggarComponent,
+    ShopScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -73,8 +89,9 @@ import { ZealotComponent } from './components/class-generator/subcomponents/zeal
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ActiveLinkService, ActiveLinkService],
+  providers: [AttributesService, ActiveQuestService],
   bootstrap: [AppComponent],
+  entryComponents: [RealBeggarComponent, ShopScreenComponent],
   schemas: [
     NO_ERRORS_SCHEMA
   ]

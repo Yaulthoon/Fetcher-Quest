@@ -14,7 +14,8 @@ import { MagicSquareComponent } from './components/side-quests/subcomponents/mag
 import { NthTwentyOneComponent } from './components/side-quests/subcomponents/nth-twenty-one/nth-twenty-one.component';
 import { KindOfSlushComponent } from './components/side-quests/subcomponents/kind-of-slush/kind-of-slush.component';
 import { TheRefinersFireComponent } from './components/side-quests/subcomponents/the-refiners-fire/the-refiners-fire.component';
-
+import { IlltimedTenureComponent } from './components/side-quests/subcomponents/illtimed-tenure/illtimed-tenure.component';
+import { MiniquestsComponent } from './components/side-quests/subcomponents/miniquests/miniquests.component';
 
 import { CharacterCreationComponent } from './components/character-creation/character-creation.component';
 
@@ -30,6 +31,9 @@ import { BarbedbarianComponent } from './components/class-generator/subcomponent
 import { JudgeComponent } from './components/class-generator/subcomponents/judge/judge.component';
 import { ZealotComponent } from './components/class-generator/subcomponents/zealot/zealot.component';
 
+import { TravelScreenComponent } from './components/travel-screen/travel-screen.component';
+
+import { EventScreenComponent } from './components/event-screen/event-screen.component';
 
 const routes: Routes = [
 
@@ -39,12 +43,12 @@ const routes: Routes = [
   },
 
   {
-    path: 'charCreation',
+    path: 'character-creation',
     component: CharacterCreationComponent
   },
 
   {
-    path: 'classGenerator',
+    path: 'class-generator',
     component: ClassGeneratorComponent,
     children: [
       {
@@ -52,46 +56,46 @@ const routes: Routes = [
         component: OverviewComponent
       },
       {
-        path: 'tumblemancer',
+        path: 'Tumblemancer',
         component: TumblemancerComponent
       },
       {
-        path: 'rogue',
+        path: 'Rogue',
         component: RogueComponent
       },
       {
-        path: 'barbedbarian',
+        path: 'Barbedbarian',
         component: BarbedbarianComponent
       },
       {
-        path: 'judge',
+        path: 'Judge',
         component: JudgeComponent
       },
       {
-        path: 'lupin',
+        path: 'Lupin',
         component: LupinComponent
       },
       {
-        path: 'mercenary',
+        path: 'Mercenary',
         component: MercenaryComponent
       },
       {
-        path: 'druid',
+        path: 'Druid',
         component: DruidComponent
       },
       {
-        path: 'paladin',
+        path: 'Paladin',
         component: PaladinComponent
       },
       {
-        path: 'zealot',
+        path: 'Zealot',
         component: ZealotComponent
       }
     ]
   },
 
   {
-    path: 'sideQuests',
+    path: 'sidequests',
     component: SideQuestsComponent,
     children: [
       {
@@ -110,6 +114,14 @@ const routes: Routes = [
       {
         path: 'the-refiners-fire',
         component: TheRefinersFireComponent
+      },
+      {
+        path: 'illtimed-tenure',
+        component: IlltimedTenureComponent
+      },
+      {
+        path: 'miniquests',
+        component: MiniquestsComponent
       }
     ]
   },
@@ -139,7 +151,27 @@ const routes: Routes = [
         component: LatestUpdatesComponent
       }
     ]
-  }
+  },
+
+  {
+    path: 'travel-screen',
+    component: TravelScreenComponent
+  },
+
+  {
+    path: 'event-screen',
+    component: EventScreenComponent,
+    children: [
+      {
+        path: '',
+        component: MiniquestsComponent
+      }
+    ]
+  },
+
+  {
+    path: '**', component: HomeScreenComponent
+  },
 
 ];
 

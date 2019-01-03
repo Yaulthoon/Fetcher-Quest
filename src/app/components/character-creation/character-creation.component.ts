@@ -179,7 +179,7 @@ export class CharacterCreationComponent implements OnInit {
     this.setAlignment('nihilVFaith');
     this.setAlignment('freedomVOrder');
     this._attributes.setClass();
-    this.router.navigate(['classGenerator']);
+    this.router.navigate(['class-generator']);
   }
 
   toggleHideShow() {

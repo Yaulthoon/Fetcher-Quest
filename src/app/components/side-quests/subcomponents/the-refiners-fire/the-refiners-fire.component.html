@@ -26,7 +26,7 @@
     Feeling well-rested and stocked with a healthy amount of provisions, you
     decide that there is no reason to risk venturing into an unknown forest. You
     decide to continue along the path.
-    <button (click)="this.progressStory(1, 'back')">
+    <button (click)="this.toEventScreen(1, 'back')">
       Back
     </button>
   </p>
@@ -73,7 +73,7 @@
     Whatever it is that killed the person within that circle is clearly
     dangerous and not to be trifled with. Exercising a healthy dose of
     caution, you decide not to press your luck and continue onward.
-    <button (click)="this.progressStory(1, 'back')">
+    <button (click)="this.toEventScreen(1, 'back')">
       Back
     </button>
   </p>
@@ -158,8 +158,11 @@
     </div>
   </div>
   <p>
-    <button (click)="this.solve()">
+    <button (click)="this.solve()" *ngIf="!this.winner">
       Solve
+    </button>
+    <button (click)="this.toEventScreen(5, 'back')" *ngIf="this.winner">
+      Return
     </button>
   </p>
 </div>
@@ -194,7 +197,7 @@
     but think that is not how the real quote is supposed to go, but you also feel
     that the saying is somehow applicable to your situation and carry on your
     journey through the forest a bit worse for wear.
-    <button (click)="this.progressStory(2, 'back')">
+    <button (click)="this.toEventScreen(2, 'back')">
       Back to puzzle
     </button>
   </p>

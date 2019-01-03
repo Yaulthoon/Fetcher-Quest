@@ -43,12 +43,16 @@ export class KindOfSlushComponent implements OnInit {
 
   resetGame() {
     var i = 0;
+    let eventScreen = this.router.url.substring(0, 13);
     const images = document.querySelectorAll('img');
     this.loss = false;
     this.numOfMoves = 0;
     this.winCondition = "";
     images[21].style.cursor = "pointer";
     images[22].style.cursor = "pointer";
+    if (eventScreen === "/event-screen") {
+      this.router.navigate(['travel-screen']);
+    }
     for (i; i < this.iceBlockArray.length; i++) {
       if (this.iceBlockArray[i] === 'x') {
         images[i].src = "assets/ice-puzzle/inactiveBlock.svg";
@@ -144,10 +148,10 @@ export class KindOfSlushComponent implements OnInit {
       this.winCondition = "Well done! For reference, it took you " +
         this.numOfMoves + " moves to get across.";
       if (this.numOfMoves > 13) {
-        this.winCondition += " Think you can get it down to 13 moves?";
+        this.winCondition += " Think you could have crossed the lake in 13 moves?";
       }
       if (this.numOfMoves === 13) {
-        this.winCondition += " Nicely done!  Thirteen is the best solution that I know of!";
+        this.winCondition += " Nicely done!  Reflecting on your passage, you feel you made it across as efficiently as possible.";
       }
       return true;
     }
@@ -167,7 +171,7 @@ export class KindOfSlushComponent implements OnInit {
       }
     }
     if (loss) {
-      this.winCondition = "Oh dear, looks like you're sunk";
+      this.winCondition = "Oh dear, looks like you're sunk.  You take 2 points of cold damage as you swim the remaining distance to the other shore.";
       this.loss = true;
     }
     return loss;

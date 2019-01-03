@@ -1,0 +1,82 @@
+<div id="navigation" (window:resize)="this.toggleNav()">
+  <a class="icon" (click)="this.toggleCondition('navHideShow')"><i class="fa fa-bars"></i></a>
+  <div class="links" [ngStyle]="this.toggleNav()">
+    <a routerLink="/"><span>Title Screen</span></a>
+    <a routerLink="/about" routerLinkActive="navActive"><span>About</span></a>
+    <a routerLink="/character-creation" routerLinkActive="navActive"><span>Character Creation</span></a>
+    <a routerLink="/sidequests" routerLinkActive="navActive"><span>Minigames</span></a>
+    <a routerLink="/travel-screen" routerLinkActive="navActive"><span>Standby</span></a>
+  </div>
+</div>
+
+<div id="wrapper">
+  <div id="sideBar">
+    <p>Character Sheet</p>
+    <a>Name: {{this.character.getClass()}}</a>
+    <a>HP: {{this.character.getHp()}}</a>
+    <a>Gold: {{this.character.inventory.getGold()}}</a>
+    <a>Status: {{this.characterStatus()}}</a>
+    <p>Inventory</p>
+    <a>Supplies: {{this.character.inventory.getSupplies()}}</a>
+    <a>Bandages: {{this.character.inventory.getBandages()}}</a>
+    <p>Actions</p>
+    <a (click)="this.toggleCondition('map')"><span>Show/Hide Map</span></a>
+  </div>
+
+  <div id="content">
+    <h1>
+      Chapter {{this._quests.chapterNumber + 1}}: {{this.chapters[this._quests.chapterNumber]}}
+    </h1>
+    <h2>
+      {{this.subChapters[this._quests.chapterNumber]}}
+    </h2>
+    <div class="mapContainer">
+      <h1 *ngIf="this.map" [ngStyle]="this.currentPosition()"></h1>
+      <img src="assets/progressFetcher.svg" alt="Current (v) Progress" *ngIf="this.map" [ngStyle]="{'left': this.leftDistance()}">
+      <div class="progressBar" *ngIf="this.map">
+        <img src="assets/fetcherMap.svg" alt="Travel Map">
+      </div>
+      <div class='progressPercent'>
+        Distance to Next Town: {{this.path - this._attributes.progressDistance}}
+      </div>
+    </div>
+    <div class="container">
+      <div class="movement" (click)="this.increaseDistance(3, 1)">
+        <img src="assets/slowFetcher.svg" alt="(Slow Pace Image)">
+        Slow Pace
+        <span>
+          <ul>
+            <li>Supply Cost: 1</li>
+            <li>Movement: 3</li>
+            <li>Danger: Low</li>
+          </ul>
+        </span>
+      </div>
+      <div class="movement" (click)="this.increaseDistance(8, 2)">
+        <img src="assets/normalFetcher.svg" alt="(Normal Pace Image)">
+        Normal Pace
+        <span>
+          <ul>
+            <li>Supply Cost: 2</li>
+            <li>Movement: 8</li>
+            <li>Danger: Normal</li>
+          </ul>
+        </span>
+      </div>
+      <div class="movement" (click)="this.increaseDistance(20, 4)">
+        <img src="assets/fastFetcher.svg" alt="(Fast Pace Image)">
+        Fast Pace
+        <span>
+          <ul>
+            <li>Supply Cost: 4</li>
+            <li>Movement: 20</li>
+            <li>Danger: High</li>
+          </ul>
+        </span>
+      </div>
+    </div>
+    <div class="tips">
+      Tip: {{this.tips[this.tipNumber]}}
+    </div>
+  </div>
+</div>

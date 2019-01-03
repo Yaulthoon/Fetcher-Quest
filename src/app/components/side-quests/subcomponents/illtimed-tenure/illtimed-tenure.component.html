@@ -1,0 +1,356 @@
+<h1>
+  <span>
+    An Ill-Timed Tenure
+  </span>
+</h1>
+<!-- Part 1 -->
+<div id='separator' *ngIf="this.currentProgress === 0">
+  <div class='murderMystery'>
+    <p>
+      After staying the night with a group of travelers, you are suddenly awakened
+      by the sounds of panic outside of your tent. You walk outside to find the
+      blacksmith that you spoke to last night dead on the ground. Safety in
+      numbers? I suppose not. It does not seem like anyone will be able to
+      leave the encampment until you have figured out what happened.
+    </p>
+    <p>
+      You decide to investigate into the murder yourself believing it to be
+      the fastest way to continue on. You converse with the other travelers
+      to decide the best way to settle the matter at hand. Everyone seems
+      understandably shaken at what has transpired. Being well-versed in magic,
+      the ranger suggests that she can cast a spell of insight on one person.
+      The individual would have to spearhead the investigation. You are volunteered
+      for the position since you are the most neutral person in the group having
+      only known everyone for a single night.
+      <button (click)="this.turnPage('continue', 1)">
+        Continue
+      </button>
+    </p>
+  </div>
+</div>
+<!--End of Part 1-->
+
+<!-- Part 2 -->
+<div id='separator' *ngIf="this.currentProgress === 2">
+  <div class='murderMystery'>
+    <p>
+      The ranger informs everyone that gold is used as part of the spell components
+      as an amplifier. The more gold everyone contributes, the longer you can
+      expect the spell to last. To ensure everyone is truthful, you can only
+      question them for as long as the spell lasts. The ranger finishes her
+      rounds and she informs you that as it stands, she has enough gold for
+      about 20 minutes (20 turns) worth of duration. How much do you decide to
+      contribute towards extending the spell for your investigation?
+      <button (click)="this.setTurns(20, 1)">
+        0 gold (Hard)
+      </button>
+      <button (click)="this.setTurns(30, 1)">
+        200 gold (Medium)
+      </button>
+      <button (click)="this.setTurns(40, 1)">
+        500 gold (Easy)
+      </button>
+    </p>
+  </div>
+</div>
+<!-- End of Part 2-->
+
+<!-- Part 3 -->
+<div id='separator' *ngIf="this.currentProgress === 1">
+  <div class='murderMystery'>
+    <p>
+      Before you begin your questioning, you examine the body along with the
+      information you have gathered to this point. You realize the following:
+    </p>
+    <ol>
+      <li>
+        The body seems to have sustained a blow to the back of the head and
+        a cut from the throat down through the chest. Upon further inspection, the victim has multiple
+        injection marks on his arm. He could have been receiving some sort of
+        treatment or been an addict of some sort. You are no doctor, so you
+        do not know for sure which injury came first or how lethal they appear
+        to be.
+      <li>
+        Each individual will not explicitly lie to you, but they may find ways
+        to circumvent the spell of insight.
+      </li>
+      <li>
+        Depending on their specialty and relationships with each other, certain
+        character may provide more valuable insight. Try to ask about subjects
+        that the individual is likely to know about in more detail.
+      </li>
+      <li>
+        Each character only has one thing to say for each subject. Asking
+        multiple times will not yield additional information.
+      </li>
+      <li>
+        There will be exactly one perpetrator and one murder weapon. This is
+        not a trick question.
+      </li>
+      <li>
+        If you think you know the solution, you may pass your remaining turns
+        and go straight to your answer. If you run out of turns, you will
+        no longer be able to ask any questions and will need to provide your
+        answer.
+      </li>
+      <li>
+        Can you question the weapons? I guess, but why would you want to?
+      </li>
+    </ol>
+    <p>
+      <button (click)="this.turnPage('continue', 1)">
+        Continue
+      </button>
+    </p>
+  </div>
+</div>
+<!--End of Part 3-->
+
+<!--Murder Mystery Scene Start -->
+<div id='separator' *ngIf="this.currentProgress === 3">
+  <div class='murderMystery'>
+    <div class='turnCounter'>
+      Turns remaining: {{turns}}
+    </div>
+    <div class='murderImageContainer'>
+      <p><span>
+          {{currentSubject.getName()}}
+        </span></p>
+      <img [src]="this.currentSubject.getPortrait()" draggable='false'>
+    </div>
+    <div class='murderContentContainer'>
+      <p>
+        <span><strong>Age:</strong> {{currentSubject.getAge()}}</span>
+        <span><strong>Likes:</strong> {{currentSubject.getLikes()}}</span>
+        <span><strong>Dislikes:</strong> {{currentSubject.getDislikes()}}</span>
+        <span><strong>Specialty:</strong> {{currentSubject.getSpecialty()}}</span>
+        <span><strong>Relationship:</strong> {{currentSubject.getRelationship()}}</span>
+      </p>
+    </div>
+    <p [ngStyle]="{'left':'7%'}">
+      {{dialogue.dialogue[this.currentSubject.getNum()][this.currentQuestion.getNum()]}}
+      <button class='right' (click)="this.turnPage('continue', 1)">
+        Solve Mystery
+      </button>
+    </p>
+  </div>
+
+  <div #content id='content'>
+    <div class='choice'>
+      <label>Talking to:</label>
+      <img id='to' draggable='false' [src]='this.placeholder' (dragstart)="this.dragstartHandler($event)" (drop)="this.dropHandler($event)" (dragover)="this.dragoverHandler($event)" (dragend)='this.remove($event)'>
+    </div>
+    <div class='choice'>
+      <label>Discussing:</label>
+      <img id='about' draggable='false' [src]='this.placeholder' (dragstart)="this.dragstartHandler($event)" (drop)="this.dropHandler($event)" (dragover)="this.dragoverHandler($event)" (dragend)='this.remove($event)'>
+    </div>
+    <div class='imageContainers'>
+      <div class='images'>
+        <div class='mysteryText'>
+          Suspects
+        </div>
+        <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+          <span class="tooltiptext">Cook</span>
+          <img draggable="true" [src]="this.cook.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event)">
+        </div>
+        <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+          <span class="tooltiptext">Doctor</span>
+          <img draggable="true" [src]="this.doctor.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+        </div>
+        <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+          <span class="tooltiptext">Handyman</span>
+          <img draggable="true" [src]="this.handyman.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+        </div>
+        <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+          <span class="tooltiptext">Merchant</span>
+          <img draggable="true" [src]="this.merchant.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+        </div>
+        <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+          <span class="tooltiptext">Ranger</span>
+          <img draggable="true" [src]="this.ranger.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+        </div>
+      </div>
+      <div class='images'>
+        <div class='mysteryText'>
+          Weapons
+        </div>
+        <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+          <span class="tooltiptext">Candlestick</span>
+          <img draggable="true" [src]="this.candlestick.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+        </div>
+        <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+          <span class="tooltiptext">Dagger</span>
+          <img draggable="true" [src]="this.dagger.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+        </div>
+        <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+          <span class="tooltiptext">Kitchen knife</span>
+          <img draggable="true" [src]="this.kitchenKnife.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+        </div>
+        <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+          <span class="tooltiptext">Pipe</span>
+          <img draggable="true" [src]="this.pipe.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+        </div>
+        <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+          <span class="tooltiptext">Syringe</span>
+          <img draggable="true" [src]="this.syringe.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+        </div>
+        <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+          <span class="tooltiptext">Wrench</span>
+          <img draggable="true" [src]="this.wrench.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Murder Scene End-->
+
+<!--Solution Scene-->
+<div id='separator' *ngIf="this.currentProgress === 4">
+  <div class='murderMystery'>
+    <p>
+      You carefully consider all the evidence you collected. Yes, all the facts
+      point to a singular conclusion. That conclusion is: {{solution}}
+    </p>
+    <p>
+      The {{currentSubject.getName()}} used the {{currentQuestion.getName()}}
+      to murder the blacksmith.
+      <button (click)="this.solve()">
+        Solve
+      </button>
+    </p>
+    <div #content id='content'>
+      <div class='choice'>
+        <label>Murderer</label>
+        <img id='to' draggable='false' [src]='this.placeholder' (dragstart)="this.dragstartHandler($event)" (drop)="this.dropHandler($event)" (dragover)="this.dragoverHandler($event)" (dragend)='this.remove($event)'>
+      </div>
+      <div class='choice'>
+        <label>Weapon</label>
+        <img id='about' draggable='false' [src]='this.placeholder' (dragstart)="this.dragstartHandler($event)" (drop)="this.dropHandler($event)" (dragover)="this.dragoverHandler($event)" (dragend)='this.remove($event)'>
+      </div>
+      <div class='imageContainers'>
+        <div class='images'>
+          <div class='mysteryText'>
+            Suspects
+          </div>
+          <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+            <span class="tooltiptext">Cook</span>
+            <img draggable="true" [src]="this.cook.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event)">
+          </div>
+          <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+            <span class="tooltiptext">Doctor</span>
+            <img draggable="true" [src]="this.doctor.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+          </div>
+          <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+            <span class="tooltiptext">Handyman</span>
+            <img draggable="true" [src]="this.handyman.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+          </div>
+          <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+            <span class="tooltiptext">Merchant</span>
+            <img draggable="true" [src]="this.merchant.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+          </div>
+          <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+            <span class="tooltiptext">Ranger</span>
+            <img draggable="true" [src]="this.ranger.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+          </div>
+        </div>
+        <div class='images'>
+          <div class='mysteryText'>
+            Weapons
+          </div>
+          <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+            <span class="tooltiptext">Candlestick</span>
+            <img draggable="true" [src]="this.candlestick.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+          </div>
+          <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+            <span class="tooltiptext">Dagger</span>
+            <img draggable="true" [src]="this.dagger.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+          </div>
+          <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+            <span class="tooltiptext">Kitchen knife</span>
+            <img draggable="true" [src]="this.kitchenKnife.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+          </div>
+          <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+            <span class="tooltiptext">Pipe</span>
+            <img draggable="true" [src]="this.pipe.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+          </div>
+          <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+            <span class="tooltiptext">Syringe</span>
+            <img draggable="true" [src]="this.syringe.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+          </div>
+          <div class='mystery' (touchstart)="this.onTouchStart($event)" (touchend)="this.onTouchEnd($event)">
+            <span class="tooltiptext">Wrench</span>
+            <img draggable="true" [src]="this.wrench.getPortrait()" (dragstart)="this.dragstartHandler($event)" (dragend)="this.dragendHandler($event);">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End of Solution Scene-->
+
+<!--Start Final Scene Success-->
+<div id='separator' *ngIf="this.currentProgress === 5">
+  <div class='murderMystery'>
+    <div class='storyBlock'>
+      <p>
+        Everyone turns to look at the Doctor as she begins to break down. The Cook
+        begins to come to her defense only to remain silent once the Doctor falls
+        to her knees and weep. The only sound you hear are her sobs as she tries
+        to make her shaky knees work. Eventually, she manages to stand back up,
+        but you get the feeling that the slightest breeze would topple her over.
+      </p>
+      <p><span>
+          "It was supposed to save him...I checked the ratio of the ingredients
+          several times over. It wasn't supposed to be like this. I tried to
+          save him. When he started gasping for air and collapsed on the ground,
+          I tried to open up his airway, but all I had was the kitchen knife.
+          There was nothing I could do. The damage was too severe by the time
+          I opened him up. I was too late...and now, he's gone."
+        </span></p>
+      <p>
+        As the Doctor begins to cry once again, the Cook comes up behind her to
+        support her weight. Looking around, no one could say anything. Instead
+        of a man hunt, the scene now has the atmosphere of a funeral. Everyone
+        seems to be avoiding eye contact with one another. You hear nothing
+        but the sounds of the Cook whispering inaudible condolences to the Doctor
+        beside you. You did what you set out to do. You can probably say one
+        last thing to the Doctor before you go if you wanted.
+        <button #neutral *ngIf="this.endString === ''" (click)="this.endDialogue(neutral)">
+          Say nothing
+        </button>
+        <button #evil *ngIf="this.endString === ''" (click)="this.endDialogue(evil)">
+          Blame her
+        </button>
+        <button #good *ngIf="this.endString === ''" (click)="this.endDialogue(good)">
+          Offer sympathy
+        </button>
+      </p>
+      <p>
+        {{endString}}
+        <button *ngIf="this.endString !== ''" (click)="this.toEventScreen(20, -5)">
+          Return
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
+<!--End of Final Scene Success-->
+
+<!--Start Final Scene Failure-->
+<div id='separator' *ngIf="this.currentProgress === 6">
+  <div class='murderMystery'>
+    <p>
+      The {{currentSubject.getName()}} used the {{currentQuestion.getName()}}
+      to murder the blacksmith.
+    </p>
+    <p>
+      You offer this theory to the group. Although you thought the logic was
+      foolproof, they group does not seem to accept your analysis. Maybe
+      something went wrong somewhere along the line.
+      <button (click)="this.toEventScreen(20, -6)">
+        Return
+      </button>
+    </p>
+  </div>
+</div>
+<!--End of Final Scene Failure-->

@@ -12,7 +12,7 @@ export class OverviewComponent implements OnInit {
 
   freedomOrder: number = this._attributes.freedomVOrder.value;
   nihilFaith: number = this._attributes.nihilVFaith.value;
-  currentClass = "/classGenerator/" + this._attributes.getClass() + "/";
+  currentClass = "/class-generator/" + this._attributes.getClass() + "/";
 
   constructor(public _attributes: AttributesService, public router: Router) { }
 

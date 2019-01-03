@@ -1,0 +1,74 @@
+<h3>
+  <span>
+    Alms for the Poor
+  </span>
+</h3>
+<div class='container' *ngIf="this.storyProgress === 0">
+  <p>
+    You come across a beggar along the road. Although he has his hood up due to
+    the rain, his shabby cloak only covers about half of his body. He stands up
+    in order to greet you.
+  </p>
+  <p>
+    <span>
+      Hello good sir. I don't suppose you can spare some gold for a man down on
+      his luck could you? Whatever you can spare would be most appreciated, I
+      have a lot of mouths to feed and not enough gold. Our crops have done
+      poorly this year and I do not know if we can make it through winter.
+    </span>
+  </p>
+  <p>
+    You know there are a lot of beggars along these roads; not all of them
+    truthful. Some would only use the gold you give them to fund their drug
+    habits. Still, knowing this, you decide to:
+  </p>
+  <button (click)="this.giveItem('gold', 1, 'continue')" [disabled]="this._attributes.currentClass.inventory.getGold() < 25">
+    Give 25 gold
+  </button>
+  <button (click)="this.giveItem('supplies', 2, 'continue')" [disabled]="this._attributes.currentClass.inventory.getSupplies() < 3">
+    Give 3 supplies
+  </button>
+  <button (click)="this.turnPage(3, 'continue')">
+    Give nothing
+  </button>
+</div>
+
+<div class='container' *ngIf='this.storyProgress === 1'>
+  <p>
+    Grateful for your generosity, the beggar removes his hood and shakes your
+    hand heartily. He explains that he is a priest that travels from town to town
+    providing for the poor. The priest uses the gold from travelers to purchase
+    spell components for his healing spells. The amount that you gave him should
+    go a great way towards buying more components. As you nod and turn to walk
+    away, you feel a sudden warmth inside you as <strong>you heal for 5 Hp</strong>.
+  </p>
+  <button (click)="this.toTravelScreen()">
+    Return
+  </button>
+</div>
+
+<div class='container' *ngIf='this.storyProgress === 2'>
+  <p>
+    Grateful for your generosity, the beggar removes his hood and shakes your
+    hand heartily. He explains that he is a priest that travels from town to town
+    providing for the poor. The priest uses the supplies from travelers to feed and
+    bandage the needy who cannot afford a proper doctor. The amount that you gave him should
+    provide a great deal of food for the nearby farmers that have lost much of their
+    harvest this year. As you nod and turn to walk away,<strong> the priest gives you 3 bandages</strong>
+    to show his thanks. He tells you that he is adept at making them from scraps of cloth
+    and assures you the supplies you gave him will allow him to make plenty more.
+  </p>
+  <button (click)="this.toTravelScreen()">
+    Return
+  </button>
+</div>
+
+<div class='container' *ngIf='this.storyProgress === 3'>
+  <p>
+    Maybe you did not trust the beggar. Or maybe you did not have anything to spare.
+    Regardless, you opt to give him nothing and continue on your journey.
+  </p>
+  <button (click)="this.toTravelScreen()">
+    Return
+  </button>
+</div>

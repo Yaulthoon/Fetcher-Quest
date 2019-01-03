@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Capacitor } from '../../../../../utils/capacitor';
 
@@ -21,7 +22,7 @@ export class TheRefinersFireComponent implements OnInit {
     "but fire soon shall make them pay; unless equal share of sin they weigh. " +
     "There must be a trick behind these containers.";
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
@@ -100,6 +101,15 @@ export class TheRefinersFireComponent implements OnInit {
     } else {
       console.log('puzzle failed');
       this.progressStory(1, 'continue');
+    }
+  }
+
+  toEventScreen(num, direction) {
+    let eventScreen = this.router.url.substring(0, 13);
+    if (eventScreen === "/event-screen") {
+      this.router.navigate(['travel-screen']);
+    } else {
+      this.progressStory(num, direction);
     }
   }
 
