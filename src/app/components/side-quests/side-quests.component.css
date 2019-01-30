@@ -154,7 +154,7 @@
   margin-left: 5%;
   margin-right: 5%;
   width: fit-content;
-  max-width: 50%;
+  max-width: 70%;
 }
 
 .characterCreation h2 {
@@ -441,11 +441,11 @@ input[type=range]::-ms-track {
   }
 
   .characterCreation h1, .characterCreation h2 {
-    font-size: 4.5vw;
+    font-size: 16px;
   }
 
   .characterCreation h3 {
-    font-size: 3.7vw;
+    font-size: 16px;
   }
 
   .characterCreation input[type="text"] {
@@ -497,6 +497,8 @@ input[type=range]::-ms-track {
 
   .header {
     top: 1.7%;
+    left: 75%;
+    width: 25%;
   }
 
   .progressBar {

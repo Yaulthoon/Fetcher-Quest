@@ -1,0 +1,84 @@
+<h3>
+  <span>
+    Wellfare
+  </span>
+</h3>
+
+<div class="container" *ngIf="this.storyProgress === 0 && this.donations < 100">
+  <p>
+    In your travels you come across a well just off the roadside. Feeling thirsty,
+    you decide to stop to fill your waterskin. As you approach the well,
+    you see a number of gold coins on its rim. Is this supposed to be some sort
+    of wishing well? You could make a donation for good luck, but then again,
+    you could just take the coins yourself since no one else is around to judge
+    you.
+  </p>
+  <p id="character" *ngIf="this._attributes.currentClass.getClass() === 'Tumblemancer'">
+    As you examine the well and consider your options, you take notice that the coins
+    on the well emit an ominous aura. You did not notice at first glance, but these
+    coins are clearly cursed. Taking them would be an illfated idea.
+  </p>
+  <p>
+    {{this.wellWishes[this.times]}}
+  </p>
+  <button (click)="this.storyProgress = 2">
+    Move along
+  </button>
+  <button (click)="this.steal()">
+    Take the coins
+  </button>
+  <button (click)="this.donate(10)">
+    Throw 10 coins
+  </button>
+  <button (click)="this.donate(50)">
+    Throw 50 coins
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 0 && this.donations >= 100">
+  <p>
+    You have thrown a ludricrous amount of gold into this well hoping for...well,
+    I am not exactly sure what you were hoping for. Wait a second, you hear a
+    rumbling within the well. Suddenly, water shoots out accompanied by an absurd
+    amount of gold. Taking the time to collect it, <strong>you realize that all {{this.donations}}
+      of the gold</strong> you tossed in has appeared before you. Also, <strong>you find a few artifacts</strong>
+    that appear to be valuable as well. You gratefully store them in your treasure bag
+    to sell later.
+  </p>
+  <p>
+    Is there some sort of moral lesson here? Maybe...it pays to throw
+    gold around in situations that do not warrant it? Its hard to say.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 1">
+  <p>
+    After counting it up, you pocketed a total of <strong>20 gold</strong> for
+    your efforts. As you continue along your way, you start to feel a little
+    unwell. You wonder if getting sick was a coincidence or is karma catching
+    up with you? Its hard to say.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 2">
+  <p *ngIf="this.times === 0">
+    While you respect the wishes of others to believe in superstitions, you
+    see no gain from throwing money in yourself, nor do you wish to take from
+    the good will of others. You ignore the well and carry on.
+  </p>
+  <p *ngIf="this.times === 1">
+    You donated to the well, and while the breeze was nice, that's all it was.
+    Not feeling inclined to cast any more money into the well, you continue on
+    your journey. Maybe the good fortune will help you in your travels. Its
+    hard to say.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>

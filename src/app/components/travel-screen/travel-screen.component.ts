@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AttributesService } from '../../services/attributes.service';
@@ -13,11 +13,11 @@ import { CharacterClass } from '../../../utils/character-class';
 export class TravelScreenComponent implements OnInit {
 
   navHideShow: boolean = false;
-  path: number = 90;
   map: boolean = true;
   positionX: number = 0;
   positionY: number = 0;
   character = this._attributes.currentClass;
+  injuries = this.character.getInjury();
   questNumber = Math.floor(Math.random() * this._quests.normalQuests.length);
   chapters = ['Rasa Forest', 'God\'s Acre', 'Tumble Lake', 'Mount Grimgar'];
   subChapters = [
@@ -39,6 +39,18 @@ export class TravelScreenComponent implements OnInit {
   constructor(public _attributes: AttributesService, public _quests: ActiveQuestService, public router: Router) { }
 
   ngOnInit() {
+    if (this._attributes.progressDistance === this._attributes.currentPath) {
+      setTimeout(() => {
+        this._attributes.progressDistance = 0;
+        this._quests.chapterNumber += 1;
+      }, 100);
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.injuries.turns === 0) {
+      this.character.setInjury(0, 0);
+    }
   }
 
   leftDistance() { return this._attributes.progressDistance + "%"; }
@@ -91,21 +103,18 @@ export class TravelScreenComponent implements OnInit {
   }
 
   increaseDistance(num, supplyCost) {
-    if (this.character.getHp() === 0) {
+    if (this.character.getHp() <= 0) {
       return;
     }
-    if (this._attributes.progressDistance === this.path) {
-      this._attributes.progressDistance = 0;
-      this._quests.chapterNumber += 1;
-      return;
-    } else if (this._attributes.progressDistance + num > this.path) {
-      this._attributes.progressDistance = this.path;
+    if (this._attributes.progressDistance + num > this._attributes.currentPath) {
+      this._attributes.progressDistance = this._attributes.currentPath;
     } else {
       this._attributes.progressDistance += num;
     }
+    this.checkInjury();
+    this.setPace(num);
     this.calculateCost(num, supplyCost);
     this.nextEvent();
-    console.log("total supplies: " + this.character.inventory.getSupplies());
   }
 
   calculateCost(num, supplyCost) {
@@ -125,11 +134,31 @@ export class TravelScreenComponent implements OnInit {
       this.character.inventory.setSupplies(this.character.inventory.getSupplies() - supplyCost);
     }
   }
+
   nextEvent() {
     this._quests.questNumber = this.questNumber;
     setTimeout(() => {
       this.router.navigate(['event-screen']);
     }, 1200);
+  }
+
+  setPace(num) {
+    if (num === 3) {
+      this._attributes.progressSpeed = 1;
+    } else if (num === 8) {
+      this._attributes.progressSpeed = 2;
+    } else {
+      this._attributes.progressSpeed = 3;
+    }
+  }
+
+  checkInjury() {
+    if (this.injuries.turns > 0) {
+      this.character.setHp(this.character.getHp() - this.injuries.damage);
+      this.character.setInjury(this.injuries.damage, this.injuries.turns - 1);
+    } else {
+      this.character.setInjury(0, 0);
+    }
   }
 
   navigation() {

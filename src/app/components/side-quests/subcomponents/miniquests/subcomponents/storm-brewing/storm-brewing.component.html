@@ -1,0 +1,187 @@
+<h3>
+  <span>
+    A Storm A-Brewin'
+  </span>
+</h3>
+
+<div class="container" *ngIf="this.storyProgress === 0">
+  <p>
+    You smell it. A storm a-brewin'. Your tumbleweed yearns to roll across the
+    road in an out of control manner. You could try to keep traveling at your
+    current pace, but doing so is risky. You see a small cave nearby that would make a
+    natural shelter against the storm. Waiting there until the storm passes
+    would ensure your safety, but who knows how much progress you would lose by
+    waiting instead of venturing forth?
+  </p>
+  <button (click)="this.shelter(this._attributes.progressSpeed)">
+    Take Shelter
+  </button>
+  <button (click)="this.riskIt()">
+    Risk Travel
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 1">
+  <p>
+    You realize this is no ordinary storm approaching and seek shelter within
+    the cave. As the rain begins to pummel against the sides of the cave, you
+    feel a sense of relief that you did not risk traveling onward. A hour seems
+    to pass without any signs of relief. Another hour passes and begin to
+    wonder if the storm will ever let up.
+  </p>
+  <p>
+    You begin to feel a little stir-crazy when a flash of lightning lights up
+    the cave. You hadn't noticed until just now, but there appear to be some
+    mushrooms growing in this cave. You think to yourself: should I eat these?
+  </p>
+  <p id='character' *ngIf="this.character === 'Druid' || this.character === 'Tumblemancer'">
+    Inspecting them closer, you recognize them as poisonous mushrooms with
+    hallucinogenic properties. Who knows what disaster could await you if you
+    were to consume them.
+  </p>
+  <button (click)="this.eatMushrooms()">
+    Eat them
+  </button>
+  <button (click)="this.storyProgress = 2">
+    Leave them be
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 2">
+  <p>
+    Under much consideration, you decide not to eat the mushrooms. Eventually,
+    the storm passes and you exit the cave unharmed. Unfortunately, you ended
+    up losing any progress that you would have made on this day's travels, but
+    that is the price you pay sometimes for a safe voyage.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 3">
+  <p>
+    You begin to munch on the mushrooms without a second thought when you
+    suddenly feel a strange sensation come over you.
+  </p>
+  <p id="character" *ngIf="this.character === 'Mercenary'">
+    These were poisonous mushrooms and you can tell that they would drive most
+    people into a deranged psychosis, but for you, they do little more than
+    lift your spirits. You actually feel energized from the meal. In fact, you
+    gather the rest of them up to eat as snacks during your journey. Even though
+    you lost out on your progress for the day, you managed to heal for 2 Hp and gain 2
+    supplies as you waited out the storm.
+  </p>
+  <button *ngIf="this.character === 'Mercenary'" (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+  <p *ngIf="this.character !== 'Mercenary'">
+    You are not sure what just happened. It could have just been the day's fatigue
+    catching up with you. After you have your fill, you turn around to sit by
+    the cave's entrance when you see several snakes creeping towards you. Did you
+    rest in a den of snakes? My god, they are even crawling along the walls towards
+    you! They look like they intend to do you harm! All your supplies are in the
+    wagon outside. Equipped only with your fists, you decide to:
+  </p>
+  <button *ngIf="this.character !== 'Mercenary'" (click)="this.snakes('punch')">
+    Punch your way through
+  </button>
+  <button *ngIf="this.character !== 'Mercenary'" (click)="this.snakes('still')">
+    Stay completely still
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 4">
+  <p>
+    You decide to stay perfectly still and hope they ignore you. Nervous, you
+    close your eyes and try to calm your breathing. Darkness comes. When you wake
+    up, you do not see any snakes around you and the storm has passed. You feel
+    weak and notice you have a touch of a fever. Was it the mushrooms? You are
+    probably lucky that you are walking away only slightly worse for wear. You
+    gather yourself up and continue on your journey.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 5">
+  <p>
+    As you begin to punch and kick your way through, you feel the sharp, unforgiving
+    cave wall meet with your fist. Yeowch! You take 1 Hp of damage as you hurt
+    your fist punching at the snakes. As you come to your senses, you realize
+    that the snakes must have been a figment of your imagination. You sit back
+    down in a groggy state and try to wait out the ill-effects of the mushrooms
+    as the storm passes. Ultimately, the storm does pass and you can continue on
+    your journey still feeling a little sick from the effects of the mushrooms.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 10 && this.consequence <= 38">
+  <p id="character" *ngIf="this.character === 'Zealot'">
+    Confident that no harm shall come your way as long as your faith holds strong,
+    you press onward. Indeed, you can feel a warm presence attempting to protect
+    you from this terrible storm.
+  </p>
+  <p>
+    As you rush through the storm, you immediately regret your decision to press
+    onward. You look into the sky and see various pieces of debris flying through
+    the air! Trapped as you now are, all you can do is press forward and hope
+    for the best. Scraped and cut by all manner of things as you continue, you
+    witness odds and ends go flying off your own cart as well.
+  </p>
+  <p>
+    After much struggle, the storm eventually subsides and you realize that your
+    situation is now much worse for wear. <b>You lose 2 Hp as well as 4 supplies</b>
+    due to your foolhardy attempt to defeat the storm.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 10 && this.consequence > 38 && this.consequence <= 75">
+  <p id="character" *ngIf="this.character === 'Zealot'">
+    Confident that no harm shall come your way as long as your faith holds strong,
+    you press onward. Indeed, you can feel a warm presence attempting to protect
+    you from this terrible storm.
+  </p>
+  <p>
+    As you rush through the storm, you immediately regret your decision to press
+    onward. You look into the sky and see various pieces of debris flying through
+    the air! Trapped as you now are, all you can do is press forward and hope
+    for the best. Scraped and cut by all manner of things as you continue, you
+    witness odds and ends go flying off your own cart as well.
+  </p>
+  <p>
+    The storm passes and you gather your wit about you. You have a few scrapes
+    here and there, but you did not seem to come to much harm. Luckily for you,
+    you only lost <b> 1 Hp and 2 supplies</b>. You feel it could have been
+    much worse had the spiraling debris really came your way in earnest. You
+    quickly gather up your belongings and continue your journey.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 10 && this.consequence > 75">
+  <p id="character" *ngIf="this.character === 'Zealot'">
+    Confident that no harm shall come your way as long as your faith holds strong,
+    you press onward. Indeed, you can feel a warm presence attempting to protect
+    you from this terrible storm.
+  </p>
+  <p>
+    Despite all the dangers of the heavy winds and spiraling debris all around
+    you, you manage to come out unscathed. Although entirely confident in your
+    own abilities, the typical observer would gawk at such unparalleled fortune.
+    You have suffered no ill effects from your run through this terrible storm.
+    Congratulations are in order I suppose. Well done.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>

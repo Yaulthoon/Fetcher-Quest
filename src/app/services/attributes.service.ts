@@ -10,6 +10,8 @@ import { CharacterClass } from '../../utils/character-class';
 export class AttributesService {
 
   progressDistance: number = 0;
+  progressSpeed: number;
+  currentPath: number = 90;
   completedStops: number = 0;
 
   freedomVOrder = new BehaviorSubject(5);
@@ -34,7 +36,7 @@ export class AttributesService {
 
   currentClass = this.tumblemancer;
 
-  constructor(private router: Router) {
+  constructor(public router: Router) {
     this.tumblemancer.setClass('Tumblemancer');
     this.rogue.setClass('Rogue');
     this.barbedbarian.setClass('Barbedbarian');
@@ -56,7 +58,7 @@ export class AttributesService {
     this.nihil.next(false);
     this.nFNeutral.next(false);
     this.faith.next(false);
-    this.router.navigate(['charCreation']);
+    this.router.navigate(['character-creation']);
     console.log("Reset back to character creation");
   }
 

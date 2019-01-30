@@ -1,0 +1,111 @@
+<h3>
+  <span>
+    River Crossing
+  </span>
+</h3>
+
+<div class="container" *ngIf="this.storyProgress === 0">
+  <p>
+    Continuing on the path you laid out, you come to the bridge that you must
+    travel over only to find that construction workers have blocked off the
+    bridge. They insist that no one can travel across until maintenance is
+    complete. Inquiring about the length of the delay, you realize that waiting
+    for the workers to be done will cost you distance that
+    you were expecting to travel today.
+  </p>
+  <p>
+    Looking for alternatives, you see a small riverboat nearby. Speaking with
+    the owner of the small boat, he offers to take you across the river to the
+    otherside for <b>50 gold</b>.
+  </p>
+  <p>
+    Alternatively, there seems to be enough timber around to make a small raft
+    yourself if you find that you are impatient. Who knows how long this effort
+    would take or if the raft will even make it across safely.
+  </p>
+  <p id="character" *ngIf="this.character === 'Lupin'">
+    You cannot help but feel that you have seen this situation before. You realize
+    that waiting for the workers will cost you <b>half of your distance</b> for
+    the day. Paying the riverboat captain will <b>allow you to lose no progress</b>
+    and only cost the 50 gold. Building your own raft at best would let you keep
+    <strong>about 75% of your expected progress</strong>, but capsizing could
+    cost you anywhere from <b>2 to 5 supplies</b> were you to fail.
+  </p>
+  <p id="character" *ngIf="this.character === 'Tumblemancer'">
+    With your abilities as a Tumblemancer, you are sure you could quickly make
+    a raft in no time that would safely ferry you across. As long as you
+    concentrate on your spell, there would be no danger involved at all.
+  </p>
+  <p>
+    Mulling over the choices, you ultimately decide to:
+  </p>
+  <button (click)="this.wait(this._attributes.progressSpeed)">
+    Wait on the maintenance
+  </button>
+  <button (click)="this.pay()" [disabled]="this._attributes.currentClass.inventory.getGold() < 50">
+    Pay to cross by boat
+  </button>
+  <button (click)="this.riverRaft(this._attributes.progressSpeed)">
+    Make a raft to cross yourself
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 1">
+  <p>
+    Even though it annoys you to be held up by the work going on, there is no
+    need to spend excessively or risk injury just to make up some time. With
+    plenty of supplies, you do not feel pressed into making a risky decision.
+    After some time, they finish and you can resume your journey. You end up
+    <b>losing about half your expected distance</b>, but you knew the price of
+    waiting beforehand, so this comes as little surprise.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 2">
+  <p>
+    You pay the riverboat captain the 50 gold to travel across the river. Without
+    incident, you make your way to the other side of the river and continue on your
+    way. Hustling a little more to make up some lost time, you were able to prevent
+    any loss in progress on the day's travel. Sometimes it pays to spend a
+    little gold to save your return on investment.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 3">
+  <p *ngIf="this.character === 'Tumblemancer'">
+    Through your tumblemancy, you weave a fine raft in no time and easily
+    cross the river to the other side. In fact, you were so quick with your
+    efforts that you lost no time on the day's progress. The construction
+    workers can only look on in awe as you renew your travel along the road
+    to your destination.
+  </p>
+  <p *ngIf="this.supplyLoss === 0 && this.character !== 'Tumblemancer'">
+    Even though you surely lost some progress on the day's travel, building
+    the raft turned out to be a worthwhile gamble. You cross the river without
+    any issue. Deciding to leave the raft behind for anyone else who may be
+    able to use it, you move on no worse for wear.
+  </p>
+  <p *ngIf="this.supplyLoss > 0 && this.character !== 'Tumblemancer'">
+    After finishing your raft, you can tell it looks a little shaky, but with
+    such a short distance to the otherside of the river, you feel its still
+    worth the risk. As you begin to cross, you almost immediately begin to
+    take on water! Although you hurry across the rest of the way, your wagon
+    takes on water as a result of your raft sinking.
+  </p>
+  <p *ngIf="this.supplyLoss > 0 && this.character !== 'Tumblemancer'">
+    Luckily, the raft made it far enough that the water is shallow enough to
+    pull your wagon the rest of the way out of the water. Unfortunately, you
+    end up <b>damaging {{supplyLoss}} supplies</b> due to water damage. While
+    you do end up saving a majority of the day's travel with your raft gamble,
+    you wonder if the extra loss in supplies was worth it or not.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>

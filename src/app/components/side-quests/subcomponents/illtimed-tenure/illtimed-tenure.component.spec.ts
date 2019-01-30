@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { IlltimedTenureComponent } from './illtimed-tenure.component';
 
@@ -8,9 +9,10 @@ describe('IlltimedTenureComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IlltimedTenureComponent ]
+      imports: [RouterTestingModule],
+      declarations: [IlltimedTenureComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,0 +1,104 @@
+<h3>
+  <span>
+    Forest Shortcut
+  </span>
+</h3>
+<div class="container" *ngIf="this.storyProgress === 0">
+  <p>
+    You are traveling along and see what looks to be a small path branching off
+    from the main one you are currently on. This looks like a natural forest path made
+    by frequent travel, but you do not know where it may lead out or if it leads
+    out at all. This could save you considerable time, but you are unfamiliar with
+    the area.
+  </p>
+  <div id="character" *ngIf="this.currentClass === 'Rogue'">
+    You see a marking on one of the nearby trees leading into the forest. With your
+    knowledge of Rogue's Cant, you understand the sign to mean that the area is
+    largely safe, but full of hunting traps along the forest floor. Knowing this,
+    you can can breeze through the forest while keeping an eye out for danger.
+  </div>
+  <p>
+    You decide to:
+  </p>
+  <button (click)="this.caution()">
+    Take the path cautiously
+  </button>
+  <button (click)="this.rush()">
+    Rush along the path
+  </button>
+  <button (click)="this.storyProgress = 3">
+    Ignore the path
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 1">
+  <p *ngIf="this.hurt">
+    Mulling it over, you feel the best course of action is to hurry through the
+    path. The quicker you go through, the less you are exposed to danger. Or
+    so you thought. The path gets steadily less visible the further you travel,
+    and as you attempt to navigate through the rest of the way, you accidently
+    step on a bear trap!
+  </p>
+  <div id="character" *ngIf="this.hurt && this.currentClass==='Druid'">
+    Even with your wilderness experience as a druid, you were so hasty to
+    cross the path you made the rookie mistake of not watching your surroundings!
+    You scold yourself for being so careless as you yelp out in pain.
+  </div>
+  <p *ngIf="this.hurt">
+    Ouch! You find yourself injured in your efforts. Although you are sure you
+    made up some extra distance after making it through the forest, you feel
+    that it may not have been worth the risk to rush your way through.
+  </p>
+  <div id="character" *ngIf="!this.hurt && this.currentClass==='Rogue'">
+    Already being aware of the dangers ahead, you breeze through the path like
+    a native. You find yourself thankful for taking the time to learn
+    the tools of your trade so thoroughly.
+  </div>
+  <div id="character" *ngIf="!this.hurt && this.currentClass==='Druid'">
+    You definitely feel that your experiences as a druid helped you navigate
+    this forest safely. Inexperienced travelers should not be so quick to
+    take such risks, but you felt comfortable with your skills.
+  </div>
+  <p *ngIf="!this.hurt">
+    You make it through the forest path without much incident. It seems rushing
+    through was easier than you expected. You made up a significant amount of
+    time with no downside. Sometimes it pays to take a risk or two!
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 2">
+  <div id="character" *ngIf="!this.hurt && this.currentClass==='Druid'">
+    You definitely feel that your experiences as a druid helped you navigate
+    this forest safely. Inexperienced travelers should not be so quick to
+    take such risks, but you felt comfortable with your skills.
+  </div>
+  <p *ngIf="!this.hurt">
+    While your caution may have slowed you down a bit, you feel it was worth
+    taking the extra time to ensure your safety. This path was worth taking
+    after all. You even had the time to forage for materials to make some
+    extra supplies. <strong>You gain an extra 2 supplies.</strong>
+  </p>
+  <p *ngIf="this.hurt">
+    Being unfamiliar with the forest, you find yourself lost once the
+    path becomes less distinguished and difficult to follow. You
+    eventually find your way back from whence you came without injury,
+    but the time you spent finding your way back means you have lost the
+    distance you would have made if you had just stuck to the main path.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 3">
+  <p>
+    Content to play it safe, you ignore the temptations of a shortcut and
+    carry on with your current route.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>

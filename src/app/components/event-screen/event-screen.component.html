@@ -18,12 +18,15 @@
     <a>HP: {{this.character.getHp()}}</a>
     <a>Gold: {{this.character.inventory.getGold()}}</a>
     <a>Status: {{this.characterStatus()}}</a>
+    <a *ngIf="this.injuries.turns > 0">Injury: {{this.injuries.damage}} for {{this.injuries.turns}} turns</a>
     <!--Inventory-->
     <p>Inventory</p>
     <a>Supplies: {{this.character.inventory.getSupplies()}}</a>
     <a>Bandages: {{this.character.inventory.getBandages()}}</a>
     <!--Actions-->
     <p>Actions</p>
+    <!--Universal Actions -->
+    <a (click)="this.character.useBandage()"><span>Use Bandage</span></a>
     <!--Options for Shop Screen-->
     <div *ngIf="this.currentQuest === 'app-shop-screen'">
       <a (click)="this.shopGossip()"><span>Gossip</span></a>
@@ -33,6 +36,6 @@
   </div>
   <!--Character Hot Bar End-->
 
-  <div id="content" #eventContainer>
+  <div id="content">
     <router-outlet></router-outlet>
   </div>

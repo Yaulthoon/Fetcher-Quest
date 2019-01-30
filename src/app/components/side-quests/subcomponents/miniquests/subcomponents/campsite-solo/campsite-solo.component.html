@@ -1,0 +1,46 @@
+<h3>
+  <span>
+    A Rare Respite
+  </span>
+</h3>
+
+<div class="container" *ngIf="this.storyProgress === 0">
+  <p>
+    As the sun begins to dip below the horizon and the last light of the day
+    begins to fade into obscurity, you find a nice clearing that would make an
+    ideal campsite for the night. This must one of the designated campsites marked
+    on your map. You are sure resting here would bring no danger. You consider if
+    you need to rest or not given your condition. It will cost you 1 supply to
+    camp which will recover some Hp. You decide to:
+  </p>
+  <button (click)="this.camp(1, 0)">
+    Continue onward
+  </button>
+  <button (click)="this.camp(2, 3)">
+    Camp overnight
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 1">
+  <p>
+    You decide that you are feeling pretty energetic, or miserly, or some variation
+    of the two. Either way, you forgo the opportunity to camp and continue
+    onward one supply richer.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 2">
+  <p>
+    Not one to look a gift horse in the mouth, you lay out your supplies and set
+    camp for the night. As you expected, no complications occur through the
+    night and you are able to recover some of your lost stamina.<strong> You heal
+      for 3 Hp.</strong> Feeling invigorated, you gather your belongings and
+    set off in the morning sun.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>

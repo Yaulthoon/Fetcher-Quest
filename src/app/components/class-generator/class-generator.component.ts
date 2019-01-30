@@ -21,6 +21,16 @@ import { ZealotComponent } from '../../components/class-generator/subcomponents/
 })
 export class ClassGeneratorComponent implements OnInit {
 
+  //Mercenary:  cannot be poisoned by food, can gather more supplies
+  //Barbarian: Fast pace costs 2 less supplies.  Slow pace costs 2 more supplies
+  //Paladin: Recognizes pure of heart
+  //Zealot: Chance of dodging natural disasters, disregard for danger
+  //Rogue: Rogue's cant
+  //Judge: Can sense rigged games can win in case of ties
+  //Tumblemancer: Recognizes evil/cursed/poisonous objects
+  //Lupin: troupe ability
+  //Druid: Recognizes all plant life
+
   constructor(private router: Router, public _attributes: AttributesService) { }
 
   currentClass = this._attributes.getClass();

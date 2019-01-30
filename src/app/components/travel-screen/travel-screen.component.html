@@ -16,10 +16,12 @@
     <a>HP: {{this.character.getHp()}}</a>
     <a>Gold: {{this.character.inventory.getGold()}}</a>
     <a>Status: {{this.characterStatus()}}</a>
+    <a *ngIf="this.injuries.turns > 0">Injury: {{this.injuries.damage}} for {{this.injuries.turns}} turns</a>
     <p>Inventory</p>
     <a>Supplies: {{this.character.inventory.getSupplies()}}</a>
     <a>Bandages: {{this.character.inventory.getBandages()}}</a>
     <p>Actions</p>
+    <a (click)="this.character.useBandage()"><span>Use Bandage</span></a>
     <a (click)="this.toggleCondition('map')"><span>Show/Hide Map</span></a>
   </div>
 
@@ -37,7 +39,7 @@
         <img src="assets/fetcherMap.svg" alt="Travel Map">
       </div>
       <div class='progressPercent'>
-        Distance to Next Town: {{this.path - this._attributes.progressDistance}}
+        Distance to Next Town: {{this._attributes.currentPath - this._attributes.progressDistance}}
       </div>
     </div>
     <div class="container">

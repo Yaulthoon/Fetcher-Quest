@@ -1,0 +1,167 @@
+<h3>
+  <span>
+    High-Low I Won't Go
+  </span>
+</h3>
+
+<div class="container" *ngIf="this.storyProgress === 0">
+  <p>
+    You have been uneventfully taking this path for a couple hours now and you
+    begin to wonder if it continues on forever. After taking a particularly
+    winding turn around one of the many hills in the area, you notice a woman
+    sitting idly on the lip of her wagon. She notices you and waves to you.
+  </p>
+  <p>
+    You return her wave, and after reaching her camp, engage in the sort of small talk
+    expected of fellow travelers. Shop prices, the weather, destinations, and the
+    like. The conversation seems amiable enough when the subject turns to a bit of
+    gambling.
+  </p>
+  <p>
+    <span>
+      I haven't found anyone to gamble with in quite some time. Having just met one
+      another, I figure we could start up a simple game of high/low if you wanted.
+      Nothing too fancy. You can look at the deck if you want, there isn't
+      anything shady about it. Or you can even use your own deck if you have one.
+    </span>
+  </p>
+  <p>
+    You skim through the deck quickly and notice all the cards are there. There is
+    no reason to suspect this traveler of trying to cheat you. If you are lucky,
+    you might can even win a tidy sum of money. Maybe.
+  </p>
+  <button (click)="this.storyProgress = 2">
+    Play
+  </button>
+  <button (click)="this.storyProgress = 1">
+    Don't Play
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 1">
+  <p *ngIf="this.character.inventory.getGold() <= 100">
+    With your fragile stack of gold, you feel it is not worth the risk in losing
+    it all on a game of chance. You thank the traveler for her company and bid
+    her adieu.
+  </p>
+  <p *ngIf="this.character.inventory.getGold() > 100">
+    Even though you probably have enough to splurge on a couple of games, you
+    are not in the gambling mood I suppose. You thank the traveler for her company
+    and bid her adieu.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 2">
+  <p>
+    She beams at you as you agree to play a few rounds. Eager to get started,
+    she begins shuffling the deck, and as she does, she begins explaining the rules
+    of the game.
+  </p>
+  <p>
+    <span>
+      In case you haven't played before, the game is pretty straightforward. You
+      place a bet at the beginning of the game. I then draw a card and reveal
+      it to you face up. You must tell me whether or not the card you will draw
+      will be higher or lower than the card I drew. If you win, you win double
+      your wager. If you lose, I take your wager of course. Simple enough. Max
+      bet is 50 gold. As the banker, I win on ties. I'm not rich or anything and
+      I would like to play at least a few times at worst.
+    </span>
+  </p>
+  <p>
+    Grasping the basic concept of the game, you cut the deck and begin playing
+    with your new friend.
+  </p>
+  <button (click)="this.storyProgress = 3">
+    Start
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 3">
+  <div class="hud">
+    <p>
+      Your Gold: {{this.character.inventory.getGold()}}
+    </p>
+    <p>
+      Banker: {{this.bank}}
+    </p>
+    <p>
+      Bet Size: {{this.bet}}
+    </p>
+    <button class="positive" (click)="this.maxBet()" [disabled]="this.bet === 50 || this.opponentStatus || this.character.inventory.getGold() <= this.bet || this.bank === this.bet">
+      Max Bet
+    </button>
+    <button class="positive" (click)="this.increaseBet()" [disabled]="this.bet === 50 || this.character.inventory.getGold() <= this.bet || this.bank < (this.bet + 10) || this.opponentStatus">
+      Bet <i class="fa fa-plus-circle"></i>
+    </button>
+    <button class="negative" (click)="this.decreaseBet()" [disabled]="this.bet === 0 || this.opponentStatus">
+      Bet <i class="fa fa-minus-circle"></i>
+    </button>
+    <button *ngIf="!this.opponentStatus" (click)="this.dealCard()" [disabled]="this.bet === 0">
+      Place Bet
+    </button>
+    <button class="high" #high *ngIf="this.opponentStatus && !this.userStatus" (click)="this.highLow(high)">
+      Higher
+    </button>
+    <button #low *ngIf="this.opponentStatus && !this.userStatus" (click)="this.highLow(low)">
+      Lower
+    </button>
+    <button *ngIf="this.opponentStatus && this.userStatus" (click)="this.newRound()">
+      Play Again
+    </button>
+    <button *ngIf="this.opponentStatus && this.userStatus || !this.opponentStatus" (click)="this.storyProgress = 4">
+      Leave
+    </button>
+    <p *ngIf="this.opponentStatus && this.userStatus">
+      You{{this.winLoss}} {{this.bet}} gold.
+    </p>
+  </div>
+
+  <div class="gameContainer">
+    <div class="card" [ngStyle]="this.cardBackground(this.opponentColor, this.opponentStatus, 'opponent')">
+      <div class="cardValueTop">
+        {{this.cardFaces[this.opponentCard]}}
+      </div>
+      <div class="cardValueMiddle" [ngStyle]="this.cardFront(this.opponentCard, 'opponentColor')">
+        <p *ngIf="this.opponentCard < 9"> {{this.cardLoader(this.opponentCard)}}</p>
+      </div>
+      <div class="cardValueBottom">
+        {{this.cardFaces[this.opponentCard]}}
+      </div>
+    </div>
+    <div class="card" [ngStyle]="this.cardBackground(this.userColor, this.userStatus, 'user')">
+      <div class="cardValueTop">
+        {{this.cardFaces[this.userCard]}}
+      </div>
+      <div class="cardValueMiddle" [ngStyle]="this.cardFront(this.userCard, 'userColor')">
+        <p *ngIf="this.userCard < 9"> {{this.cardLoader(this.userCard)}}</p>
+      </div>
+      <div class="cardValueBottom">
+        {{this.cardFaces[this.userCard]}}
+      </div>
+    </div>
+  </div>
+  <div class="card" [ngStyle]="this.cardBack()">
+  </div>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 4">
+  <p *ngIf="this.winnings > 0">
+    Having won a tidy sum from the game, you thank the traveler for a good time.
+    Rather than seem crestfallen at her losses, she seems to have enjoyed
+    spending time in good company. Alls well that ends well. You pack up and
+    head back along the road.
+  </p>
+  <p *ngIf="this.winnings <= 0">
+    Having nothing to show for the time you spent gambling, you feel the
+    disappointment of a nonprofitable session. Hopefully you at least had a
+    good time. Being a good sport, you thank the traveler for the distraction
+    and continue along the road.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>

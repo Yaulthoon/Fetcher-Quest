@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { HomeScreenComponent } from './home-screen.component';
 
@@ -8,9 +10,10 @@ describe('HomeScreenComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeScreenComponent ]
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      declarations: [HomeScreenComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

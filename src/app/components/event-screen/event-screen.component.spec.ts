@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { EventScreenComponent } from './event-screen.component';
 
@@ -8,9 +9,10 @@ describe('EventScreenComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventScreenComponent ]
+      imports: [RouterTestingModule],
+      declarations: [EventScreenComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

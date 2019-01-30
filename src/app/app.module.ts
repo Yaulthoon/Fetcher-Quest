@@ -48,6 +48,12 @@ import { TravelScreenComponent } from './components/travel-screen/travel-screen.
 import { EventScreenComponent } from './components/event-screen/event-screen.component';
 
 import { ShopScreenComponent } from './components/shop-screen/shop-screen.component';
+import { ForestShortcutComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/forest-shortcut/forest-shortcut.component';
+import { CampsiteSoloComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/campsite-solo/campsite-solo.component';
+import { WellfareComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/wellfare/wellfare.component';
+import { HighLowComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/high-low/high-low.component';
+import { StormBrewingComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/storm-brewing/storm-brewing.component';
+import { RiverCrossingComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/river-crossing/river-crossing.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +86,13 @@ import { ShopScreenComponent } from './components/shop-screen/shop-screen.compon
     EventScreenComponent,
     MiniquestsComponent,
     RealBeggarComponent,
-    ShopScreenComponent
+    ShopScreenComponent,
+    ForestShortcutComponent,
+    CampsiteSoloComponent,
+    WellfareComponent,
+    HighLowComponent,
+    StormBrewingComponent,
+    RiverCrossingComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +103,11 @@ import { ShopScreenComponent } from './components/shop-screen/shop-screen.compon
   ],
   providers: [AttributesService, ActiveQuestService],
   bootstrap: [AppComponent],
-  entryComponents: [RealBeggarComponent, ShopScreenComponent],
+  entryComponents: [
+    RealBeggarComponent, ForestShortcutComponent, ShopScreenComponent,
+    CampsiteSoloComponent, WellfareComponent, HighLowComponent,
+    StormBrewingComponent, RiverCrossingComponent
+  ],
   schemas: [
     NO_ERRORS_SCHEMA
   ]

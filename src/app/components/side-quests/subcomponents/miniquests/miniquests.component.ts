@@ -22,8 +22,8 @@ export class MiniquestsComponent implements OnInit {
 
   loadQuest() {
     this.entry.clear();
-    //  const factory = this.resolver.resolveComponentFactory(this._quests.normalQuests[0]);
-    const factory = this.resolver.resolveComponentFactory(this._quests.normalQuests[this._quests.questNumber]);
+    const factory = this.resolver.resolveComponentFactory(this._quests.normalQuests[0]);
+    //const factory = this.resolver.resolveComponentFactory(this._quests.normalQuests[this._quests.questNumber]);
     const componentRef = this.entry.createComponent(factory);
     this._quests.currentQuest = (<any>this.entry)._data.renderElement.nextSibling.localName;
   }

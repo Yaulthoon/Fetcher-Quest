@@ -33,6 +33,13 @@ export class ShopScreenComponent implements OnInit {
 
   ngOnInit() {
     this._strings.shopkeep = 'Hello welcome to Saving Grace\'s! Just click on anything you want to add to your cart.';
+    if (this._attributes.currentClass.inventory.getTreasure() > 0) {
+      setTimeout(() => {
+        this._strings.shopkeep = 'Oh, looks like you have treasure to sell. Here\'s your ' +
+          this._attributes.currentClass.inventory.getTreasure() + ' gold.';
+        this._attributes.currentClass.sellTreasure();
+      }, 2000);
+    }
   }
 
   gossip() {

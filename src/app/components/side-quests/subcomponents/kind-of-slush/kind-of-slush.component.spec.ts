@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { KindOfSlushComponent } from './kind-of-slush.component';
 
@@ -8,9 +9,10 @@ describe('KindOfSlushComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KindOfSlushComponent ]
+      imports: [RouterTestingModule],
+      declarations: [KindOfSlushComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

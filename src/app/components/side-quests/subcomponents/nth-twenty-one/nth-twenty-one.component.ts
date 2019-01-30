@@ -20,6 +20,11 @@ export class NthTwentyOneComponent implements OnInit {
   ngOnInit() {
   }
 
+  getSize(head) {
+    let size = head.style.fontSize;
+    console.log(size);
+  }
+
   turnPage(direction, amount) {
     if (direction === 'back') {
       this.storyProgress -= amount;

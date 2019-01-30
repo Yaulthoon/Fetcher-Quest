@@ -9,6 +9,12 @@ import { IlltimedTenureComponent } from '../components/side-quests/subcomponents
 
 import { RealBeggarComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/real-beggar/real-beggar.component';
 import { ShopScreenComponent } from '../components/shop-screen/shop-screen.component';
+import { ForestShortcutComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/forest-shortcut/forest-shortcut.component';
+import { CampsiteSoloComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/campsite-solo/campsite-solo.component';
+import { WellfareComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/wellfare/wellfare.component';
+import { HighLowComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/high-low/high-low.component';
+import { StormBrewingComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/storm-brewing/storm-brewing.component';
+import { RiverCrossingComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/river-crossing/river-crossing.component';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +25,10 @@ export class ActiveQuestService {
   chapterNumber: number = 0;
   questNumber: number = 0;
   currentQuest;
-  normalQuests: any = [ShopScreenComponent,
+  normalQuests: any = [
+    RiverCrossingComponent,
+    StormBrewingComponent, HighLowComponent, WellfareComponent,
+    CampsiteSoloComponent, ForestShortcutComponent, ShopScreenComponent,
     MagicSquareComponent, NthTwentyOneComponent, KindOfSlushComponent,
     TheRefinersFireComponent, IlltimedTenureComponent, RealBeggarComponent
   ];

@@ -1,232 +1,231 @@
 h1 {
-	font-family: 'Amaranth', 'Arial';
-	font-size: 2vw;
-	color: #d45500;
-	margin-left: 3vw;
-	min-width: fit-content;
-	max-width: fit-content;
+  font-family: 'Amaranth', 'Arial';
+  font-size: 2vw;
+  color: #d45500;
+  margin-left: 3vw;
+  min-width: fit-content;
+  max-width: fit-content;
 }
 
 h1 span {
-	border-bottom: 2.5px solid #d45500;
+  border-bottom: 2.5px solid #d45500;
 }
 
 form {
-	position: relative;
-	box-sizing: border-box;
-	left: 5%;
-	width: 90%;
+  position: relative;
+  box-sizing: border-box;
+  left: 5%;
+  width: 90%;
 }
 
 #container, .counter {
-	position: relative;
-	display: inline-block;
-	box-sizing: border-box;
-	left: 33.5%;
-	width: 14%;
-	margin-top: 2%;
-	vertical-align: bottom;
-	text-align: center;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  left: 33.5%;
+  width: 14%;
+  margin-top: 2%;
+  vertical-align: bottom;
+  text-align: center;
 }
 
 .table {
-	position: relative;
-	display: inline-block;
-	box-sizing: border-box;
-	width: 100%;
-	margin-top: 15px;
-	vertical-align: bottom;
-	text-align: center;
-	font: 12pt 'Amaranth', 'Arial';
-	color: #d45500;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 15px;
+  vertical-align: bottom;
+  text-align: center;
+  font: 12pt 'Amaranth', 'Arial';
+  color: #d45500;
 }
 
 .table span, .number span {
-	font: 12pt 'Amaranth', 'Arial';
-	color: #1f1c14;
+  font: 12pt 'Amaranth', 'Arial';
+  color: #1f1c14;
 }
 
 .table img {
-	width: 100%;
+  width: 100%;
 }
 
 form {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 form button {
-	position: relative;
-	width: 24%;
-	left: 38%;
+  position: relative;
+  width: 24%;
+  left: 38%;
 }
 
-input[type = "number"] {
-	position: relative;
-	display: inline;
-	width: 4%;
-	left: 48%;
-	margin: 0;
-	padding: 0;
-	background: #ffd700;
-	color: #d45500;
-	border: 1.5px solid #1f1c14;
-	font: 12pt "Times New Roman";
-	color: #1f1c14;
-	text-align: center;
-	background: white;
-	-moz-appearance: textfield;
-    appearance: textfield;
-	margin-top: 5px;
-	outline: none;
+input[type="number"] {
+  position: relative;
+  display: inline;
+  width: 4%;
+  left: 48%;
+  margin: 0;
+  padding: 0;
+  background: #ffd700;
+  color: #d45500;
+  border: 1.5px solid #1f1c14;
+  font: 12pt "Times New Roman";
+  color: #1f1c14;
+  text-align: center;
+  background: white;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin-top: 5px;
+  outline: none;
 }
 
-input[type = "number"]:invalid {
-	background: #892e2e;
-	color: white;
-	border-color: #892e2e;
+input[type="number"]:invalid {
+  background: #892e2e;
+  color: white;
+  border-color: #892e2e;
 }
 
-input[type = "number"]::-webkit-inner-spin-button, 
-input[type = "number"]::-webkit-outer-spin-button { 
-      -webkit-appearance: none; 
-      margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 button {
-	display: block;
-	box-sizing: border-box;
-	margin-top: 20px;
-	background-color: #d45500;
-	font-size: 1.6vw;
-	font-family: 'Amaranth', 'Arial';
-	color: white;
-	cursor: pointer;
+  display: block;
+  box-sizing: border-box;
+  margin-top: 20px;
+  background-color: #d45500;
+  font-size: 1.6vw;
+  font-family: 'Amaranth', 'Arial';
+  color: white;
+  cursor: pointer;
 }
 
 button:disabled {
-	opacity: 0.7;
-	cursor: no-drop;
+  opacity: 0.7;
+  cursor: no-drop;
 }
 
 button:hover {
-	color: #1f1c14;
+  color: #1f1c14;
 }
 
 #svgContainers, #storyboard {
-	position: relative;
-	width: 90%;
-	left: 3vw;
+  position: relative;
+  width: 90%;
+  left: 3vw;
 }
 
 #storyboard {
-	color: #1f1c14;
-	font-size: 1.3vw;
-	font-family: 'Arial';
+  color: #1f1c14;
+  font-size: 1.3vw;
+  font-family: 'Arial';
 }
 
 #storyboard span {
-	display: block;
-	color: #a80000;
-	margin-left: 10%;
-	width: 80%;
+  display: block;
+  color: #a80000;
+  margin-left: 10%;
+  width: 80%;
 }
 
 .header {
-	font: 12pt 'Amaranth', 'Arial';
-	color: #d45500;
+  font: 12pt 'Amaranth', 'Arial';
+  color: #d45500;
 }
 
 .number {
-	position: relative;
-	font: 12pt "Times New Roman";
-	color: #1f1c14;
-	width: 90%;
-	left: 5%;
+  position: relative;
+  font: 12pt "Times New Roman";
+  color: #1f1c14;
+  width: 90%;
+  left: 5%;
 }
 
 .carnivalGuy {
-	position: relative;
-	display: inline-block;
-	left: 33%;
-	width: 10%;
+  position: relative;
+  display: inline-block;
+  left: 33%;
+  width: 10%;
 }
 
 .carnivalGuy img {
-	width: 100%;
-	display: inline;
+  width: 100%;
+  display: inline;
 }
 
 .fetcherGuy {
-	position: relative;
-	display: inline-block;
-	left: 33.5%;
-	width: 10%;
+  position: relative;
+  display: inline-block;
+  left: 33.5%;
+  width: 10%;
 }
 
 .fetcherGuy img {
-	width: 100%;
-	display: inline;
+  width: 100%;
+  display: inline;
 }
 
-@media only screen and (max-width: 650px) {
-	
-	.fetcherGuy {
-		width: 20%;
-		left: 25.5%;
-	}
-	
-	.carnivalGuy {
-		left: 15%;
-		width: 20%;
-	}
-	
-	.counter {
-		width: 18%;
-		left: 20.5%;
-	}
-	
-	h1 {
-		left: 0%;
-		font-size: 4.5vw;
-		min-width: fit-content;
-		max-width: fit-content;
-	}
-	
-	p, button {
-		font-size: 3.2vw;
-		margin-right: 1.5vw;
-	}
-	
-	button {
-		margin-top: 5px;
-	}
-	
-	form button {
-		left: 0%;
-		min-width: fit-content;
-		max-width: fit-content;
-	}
-	
-	form input {
-		position: relative;
-		min-width: 25%;
-		left: 0%;
-		margin-left: 2px;
-	}
-	
-	@supports (-ms-ime-align:auto)  {
-	p {
-		width: 70%;
-	}
-	
-	#svgContainers {
-		left: 0%;
-		width: 80%;
-	}
-	
-	form button {
-		width: 70%;
-	}
-}
-	
+/*was 650px in case something goes wrong*/
+@media only screen and (max-width: 750px) {
+  .fetcherGuy {
+    width: 20%;
+    left: 25.5%;
+  }
+
+  .carnivalGuy {
+    left: 15%;
+    width: 20%;
+  }
+
+  .counter {
+    width: 18%;
+    left: 20.5%;
+  }
+
+  h1, h1 span {
+    left: 0%;
+    font-size: 16px;
+    max-width: 80%;
+    margin-top: 10px;
+  }
+
+  p, button {
+    font-size: 3vw;
+    margin-right: 1.5vw;
+  }
+
+  button {
+    margin-top: 5px;
+  }
+
+  form button {
+    left: 0%;
+    min-width: fit-content;
+    max-width: fit-content;
+  }
+
+  form input {
+    position: relative;
+    min-width: 25%;
+    left: 0%;
+    margin-left: 2px;
+  }
+
+  @supports (-ms-ime-align:auto) {
+    p {
+      width: 70%;
+    }
+
+    #svgContainers {
+      left: 0%;
+      width: 80%;
+    }
+
+    form button {
+      width: 70%;
+    }
+  }
 }

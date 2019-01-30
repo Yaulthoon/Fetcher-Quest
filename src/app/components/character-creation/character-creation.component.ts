@@ -46,7 +46,7 @@ export class CharacterCreationComponent implements OnInit {
 
   authGuard() {
     if (this.auth !== undefined) {
-      this.router.navigate(["/classGenerator/" + this.auth + "/"]);
+      this.router.navigate(["/class-generator/" + this.auth + "/"]);
     }
   }
 

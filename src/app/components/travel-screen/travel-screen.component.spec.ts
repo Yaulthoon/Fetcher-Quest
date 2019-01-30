@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { TravelScreenComponent } from './travel-screen.component';
 
@@ -8,9 +9,10 @@ describe('TravelScreenComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TravelScreenComponent ]
+      imports: [RouterTestingModule],
+      declarations: [TravelScreenComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

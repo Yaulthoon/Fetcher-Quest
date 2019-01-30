@@ -17,6 +17,7 @@ export class EventScreenComponent implements OnInit {
 
   navHideShow: boolean = false;
   character = this._attributes.currentClass;
+  injuries = this._attributes.currentClass.getInjury();
   currentQuest;
 
   constructor(public _attributes: AttributesService, public _quests: ActiveQuestService,
