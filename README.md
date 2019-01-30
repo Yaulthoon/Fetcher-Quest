@@ -4,6 +4,9 @@ Fetcher Quest will be a text-based, single player game that stars Lupin Fetcher 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.  Currently utilzing Angular 7.x.x.
 
+## Commit on 1/3/2019
+I added a new minigame, An Illtimed Tenure, as well as the basic layout for the game itself.  The travel screen and event screens will form the backbone of the game, and with those in place, I will begin putting everything together and balancing content for an initial release of the game.  I added a temporary "Standby" link on the navigation bar to help with testing the travel screen and events as I create them.  The travel screen routes to the event screen view which randomly generates a dynamic component from a list of possible events.  Finally, I fixed a glitch in the "At the 21st Hour" minigame where the turn button would be permanently disabled when you entered an out of bound number and clicked the button.  It should now function properly regardless of user input.
+
 ## Commit on 11/5/2018
 I recently added two new minigames:  A Kind of Slush and The Refiner's Fire to the list of minigames.  I readded the ability to zoom-in in order to improve the user experience on mobile/smaller devices in case users want to increase the size of certain puzzles.  With Angular 7 releasing, I went ahead and upgraded the app to 7 which fixed the issues with Microsoft Edge not cooperating with my services properly with ng build --prod; however, now the intro does not render properly.  I will look into solving this issue in the future.  It could be a new issue with animated SVGs, but it still works properly in all other tested browsers.  
 
