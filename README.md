@@ -4,6 +4,9 @@ Fetcher Quest will be a text-based, single player game that stars Lupin Fetcher 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.  Currently utilzing Angular 7.x.x.
 
+## Commit on 2/17/2019
+Added a designated landing page to handle incorrect routes within the app which will help users go back to the appropriate page they were on instead of being routed to the home screen like before.  I also added a few new scenarios to the list of events for the event-screen.  We are up to about 16 events now and once I get to 20 or so events, I will begin add a tutorial past the character creation process and begin putting the game together towards an initial playable state.  I am hoping that the game will be playable from beginning to end within the next couple of months with additional events being added over time.
+
 ## Commit on 1/30/2019
 Added several new minigames including a card-based gambling minigame.  Fixed several issues with broken routes from when I renamed my various routes to be more consistent with one another.  Updated my spec files to streamline additional unit testing in the future.  I plan on creating an error page for mistaken routes rather than depending on my landing page and will continue to add a few more minigames for the sake of variety during the main game.  All that will be left after this will be to create an intro tutorial and create a logical order for the game's progression.  I would say I am over half way to completing the game in its initial release.  Updates will be made as much as possible as I hope to complete the first version in the coming months.
 
