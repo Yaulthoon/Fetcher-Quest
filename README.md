@@ -4,6 +4,9 @@ Fetcher Quest will be a text-based, single player game that stars Lupin Fetcher 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.  Currently utilzing Angular 7.x.x.
 
+## Commit on 1/30/2019
+Added several new minigames including a card-based gambling minigame.  Fixed several issues with broken routes from when I renamed my various routes to be more consistent with one another.  Updated my spec files to streamline additional unit testing in the future.  I plan on creating an error page for mistaken routes rather than depending on my landing page and will continue to add a few more minigames for the sake of variety during the main game.  All that will be left after this will be to create an intro tutorial and create a logical order for the game's progression.  I would say I am over half way to completing the game in its initial release.  Updates will be made as much as possible as I hope to complete the first version in the coming months.
+
 ## Commit on 1/3/2019
 I added a new minigame, An Illtimed Tenure, as well as the basic layout for the game itself.  The travel screen and event screens will form the backbone of the game, and with those in place, I will begin putting everything together and balancing content for an initial release of the game.  I added a temporary "Standby" link on the navigation bar to help with testing the travel screen and events as I create them.  The travel screen routes to the event screen view which randomly generates a dynamic component from a list of possible events.  Finally, I fixed a glitch in the "At the 21st Hour" minigame where the turn button would be permanently disabled when you entered an out of bound number and clicked the button.  It should now function properly regardless of user input.
 
