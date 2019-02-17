@@ -490,8 +490,8 @@ h4 {
   font-size: 1.4vw;
   text-align: center;
   color: #1f1c14;
-  cursor: pointer;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .movement span {
@@ -506,7 +506,7 @@ h4 {
   text-align: center;
   transition-property: all;
   transition-timing-function: ease-in;
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
 }
 
 .movement:first-child span {
@@ -543,11 +543,16 @@ h4 {
   margin-right: 6.5%;
 }
 
-.movement img {
+.movement img, .movement input[type="image"] {
   position: relative;
   width: 50%;
   left: 25%;
   display: block;
+}
+
+.movement input[type="image"]:disabled {
+  cursor: no-drop;
+  opacity: 0.8;
 }
 
 .progressBar {
@@ -787,7 +792,7 @@ h4 {
     text-align: center;
   }
 
-  .movement img {
+  .movement img, .movement input[type="image"] {
     position: relative;
     width: 70%;
     left: 15%;

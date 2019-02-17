@@ -1,0 +1,36 @@
+<div id="navigation" (window:resize)="this.toggleNav()">
+  <a class="icon" (click)="this.toggleHideShow()"><i class="fa fa-bars"></i></a>
+  <div class="links" [ngStyle]="this.toggleNav()">
+    <a routerLink="/"><span>Title Screen</span></a>
+    <a routerLink="/about" routerLinkActive="navActive"><span>About</span></a>
+    <a routerLink="/character-creation" routerLinkActive="navActive"><span>Character Creation</span></a>
+    <a routerLink="/sidequests" routerLinkActive="navActive"><span>Minigames</span></a>
+    <a routerLink="/travel-screen" routerLinkActive="navActive"><span>Standby</span></a>
+  </div>
+</div>
+
+<div class='container'>
+  <p>
+    Oh dear, looks like <span>this URL does not exist.</span> This could be due to:
+  </p>
+  <ol>
+    <li>
+      Trying to access a route that no longer exists.
+    </li>
+    <li>
+      An app-related error sending you to a location that no longer exists.
+    </li>
+  </ol>
+  <p>
+    If you were redirected here while using this app, please feel free to
+    contact the developer at <b>dickensb15@ecualumni.ecu.edu</b> and let them know
+    steps to recreate this issue. They will attempt to fix this issue as soon
+    as possible. In the meantime, please feel free to use the navigation bar
+    above to return to where you left off.
+  </p>
+
+  <img src="assets/fetcherNotFound.svg" [ngStyle]="{'background-color': '#f2fae7'}">
+  <h5>
+    Error: Fetcher Not Found!
+  </h5>
+</div>

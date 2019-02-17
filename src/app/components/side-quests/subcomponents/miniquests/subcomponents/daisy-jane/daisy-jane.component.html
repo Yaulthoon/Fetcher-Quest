@@ -1,0 +1,400 @@
+<h3>
+  <span>
+    My Daisy Jane
+  </span>
+</h3>
+
+<div class="container" *ngIf="this.storyProgress === 0">
+  <p>
+    In the distance you can see a man frantically searching the outskirts of a
+    wooded area. You can hear the faint sound of his yelling, and while you
+    cannot make out exactly what he is saying, it is plain that he is searching
+    for someone or something within the woods. As you come within shouting
+    distance of one another, the man, finally noticing you, runs towards your
+    wagon in a panicked state.
+  </p>
+  <p>
+    <span>
+      "Please good sir you must help me! I gotta find my Daisy Jane, I left her
+      to roam the city thinking it would ease the pain, but she's wandered off
+      and I just know she must be in these woods somewhere scared and alone and
+      if I could just get someone to help venture in with me I'm sure I could find
+      her in no time, so please sir will you not help me?"
+    </span>
+  </p>
+  <p>
+    You get the feeling this could be a crazy man playing his crazy game. At the same
+    time, you would hate to leave this man and his, well, whatever this Daisy is to
+    him, to brave the woods at night with no shelter or supplies.
+  </p>
+  <p id="character" *ngIf="this.characterClass === 'Lupin'">
+    That being said, you have seen this sort of behavior before. You see this
+    ending one of two ways: either this hapless man is some deranged stalker and
+    you will eventually have to subdue him or this man has gotten himself involved
+    with something far more sinister than he realizes...
+  </p>
+  <p id="character" *ngIf="this.characterClass === 'Rogue'">
+    You notice on one of the nearby trees that someone has etched the sign for
+    extreme danger. For such a peaceful looking forest to contain such a warning,
+    you wonder what kind of threat lies within the woods. You should be on your
+    guard.
+  </p>
+  <p>
+    That being said, you hesitantly agree to help the man in finding his Daisy
+    Jane.
+  </p>
+  <button (click)="this.storyProgress = 1">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 1">
+  <p>
+    You decide to split up to cover more ground with the promise that you will
+    call out to one another should you find Daisy. You search for a hour or two
+    without luck when you come across a distressed woman lying prone on the ground.
+    She looks up at you with pleading eyes and implores you for aid.
+  </p>
+  <p>
+    <span>
+      "Oh please sir, could you possibly help me? My foot got tangled up in this root
+      and I cannot free myself. I think its some sort of monsterous plant, because the
+      more I struggle, the more it saps me of my energy to the point where I can hardly
+      move anymore."
+    </span>
+  </p>
+  <p id="character" *ngIf="this.characterClass === 'Paladin'">
+    Your senses tell you that whatever this woman is telling you is a ruse. You
+    feel a disturbing evil eminating from this girl. In fact, she may not
+    even be human at all.
+  </p>
+  <p id="character" *ngIf="this.characterClass === 'Druid' || this.characterClass === 'Tumblemancer'">
+    You look down at the root that entangles the woman's foot and realize that the
+    root is not trapping her at all, but forms a part of her body. Rooted to
+    the ground, you recognize this plant-based humanoid as a Pleading Ivy. They
+    lure lonely creatures into their dens, convince them to stay by their side, and
+    slowly wrap their roots around them until the victim expires. Truly sinister
+    plants for sure and incredibly dangerous.
+  </p>
+  <p id="character" *ngIf="this.characterClass === 'Lupin'">
+    Something tells you that, despite her frail appearance, this woman should
+    not have any trouble breaking free of the roots around her foot. This is
+    probably not just some damsel in distress.
+  </p>
+  <p>
+    Seeing Daisy asking for your help, you decide to:
+  </p>
+  <button (click)="this.storyProgress = 2">
+    Call out to the man first
+  </button>
+  <button (click)="this.storyProgress = 10">
+    Approach and assist
+  </button>
+  <button (click)="this.storyProgress = 20">
+    Stand still
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 2">
+  <p>
+    Sticking with the original plan, you realize you never got the man's name that
+    was searching for Daisy. You decide to just yell out that you found her in
+    hopes that the man was somewhere nearby. Upon hearing you call out, Daisy
+    appears concerned for unknown reasons.
+  </p>
+  <p>
+    <span>
+      "Could you possibly tell me who you are calling for? A strong man such as
+      yourself could surely free me on your own. Please help me."
+    </span>
+  </p>
+  <button (click)="this.storyProgress = 3">
+    Explain that help is on the way
+  </button>
+  <button (click)="this.storyProgress = 10">
+    Go ahead and help her
+  </button>
+  <button (click)="this.storyProgress = 20">
+    Stay still
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 3">
+  <p>
+    You tell Daisy that help is on the way and that her traveling companion
+    was rushing here to tend to her. If the plant is as dangerous as she says,
+    then having an extra set of hands would minimize the risk for everyone.
+  </p>
+  <p>
+    <span>
+      "I don't understand why you are making me suffer so. Could you possibly
+      free me already? I feel like I might die before he gets here."
+    </span>
+  </p>
+  <button (click)="this.storyProgress = 10">
+    Attempt a solo rescue
+  </button>
+  <button (click)="this.storyProgress = 20">
+    Wait for her companion
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 10">
+  <p>
+    It would look bad if you didn't at least try to free her yourself. You figure
+    the worst that happens would be that you tire yourself a bit trying to free
+    her yourself. You bend down and begin struggling with the root to free Daisy.
+    As you struggle, you begin to fatigue quicker than you expected.
+  </p>
+  <p>
+    <span>
+      "I know it must be so hard on you, but could you possibly try for just a
+      little longer? I can feel it loosening."
+    </span>
+  </p>
+  <p>
+    As you wonder why you feel so drained, Daisy implores you to keep trying.
+    What do you do? For some reason, you already feel like you may be at your
+    limit.
+  </p>
+  <p *ngIf="this.struggle">
+    As you keep trying, you can feel yourself growing weaker. <b>You lose 1 Hp</b> as you tug at the root.
+  </p>
+  <button (click)="this.free()">
+    Keep trying
+  </button>
+  <button (click)="this.storyProgress = 11">
+    Back off
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 11">
+  <p>
+    You attempt to stand up, but you realize that you are almost completely tangled
+    in vines.
+  </p>
+  <p>
+    <span>
+      "Could you possible stop resisting and just let me consume you?"
+    </span>
+  </p>
+  <p>
+    You look towards Daisy and realize that she is not a human at all.
+    The vines around you are extensions of her body. This must have been her plan
+    all along. All you can do is try to struggle free from the situation. You can
+    expect to <b>take 1 Hp</b> in damage for each time you struggle against her grip.
+  </p>
+  <p>
+    Escape progress: <strong>{{escapePercent}}%</strong>
+  </p>
+  <button (click)="this.escape()">
+    Free yourself
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 12">
+  <p>
+    You manage to break free from her grasp. As you do, her "companion" finally
+    catches up with you and looks on in horror at what he sees. By this point,
+    you are considerably weakened, but between the two of you, you should be able
+    to defeat this monster. Or you could just run for your lives, but you would
+    be allowing this creature to live to haunt the lives of other adventurers
+    later on.
+  </p>
+  <button (click)="this.storyProgress = 14">
+    Fight her
+  </button>
+  <button (click)="this.storyProgress = 13">
+    Run away
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 13">
+  <p>
+    You both manage to get away safely. The man apologizes profusely for leading
+    you to harm. That monster must have some kind of spell that she chants that
+    mesmerizes weak-willed travelers to their doom. Sometimes its best to cut your
+    losses and move along. You make a note of this situation for the future and
+    continue along your journey.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 14">
+  <p>
+    As you mount an offensive you can see Daisy gazing into the traveler's eyes and
+    whispering something to him as he closes in. As the man collapses on the ground,
+    a cruel smile crosses Daisy's face. Something is not right.
+    The man gets up and glares at you with contempt and draws a knife from
+    his back.
+  </p>
+  <p>
+    <span>
+      "I'm not sure how you resisted my mind control, but its a good thing your
+      friend here is very...compliant. Now dear, could you possibly kill this man
+      thats in our way?"
+    </span>
+  </p>
+  <p>
+    The traveler begins to approach you slowly while brandishing his knife. Mind
+    control relies on subtle control of victims usually by means of a binding
+    phrase and eye contact. The technique is not without substantial risk however.
+    Knowing this might just save your life. If you can utter the phrase she is
+    using while she is concentrating on her spell, you can turn the spell back
+    on the caster.
+  </p>
+  <p>
+    Thinking back quickly on Daisy's mannerisms, you think of the phrase in
+    your mind and shout:
+  </p>
+  <p *ngIf="this.struggle">
+    That must not have been the right phrase. You quickly dodge as the traveler
+    slashes at you, but you still take <b>1 Hp of damage</b>. Do you try again
+    or attempt to flee?
+  </p>
+  <p id="character" *ngIf="this.characterClass === 'Paladin' && this.struggle">
+    As a paladin, fleeing is never an option to begin with. This man needs your
+    help and this foul creature needs to perish. Taking a step back, you realize
+    that the placeholder in the input box provides a clue to the phrase. Three
+    words: 5, 3, and 8 letters long respectively. What could it be?
+  </p>
+  <input type="text" [(ngModel)]="this.spell" placeholder="----- --- --------">
+  <button (click)="this.breakSpell()">
+    Shout
+  </button>
+  <button *ngIf="this.struggle" [disabled]="this.characterClass === 'Paladin'" (click)="this.storyProgress = 25">
+    Flee
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 20">
+  <p>
+    Exercising caution, you insist that you will wait for Daisy's companion before
+    providing any assistance. Apparently not content with your answer, she speaks
+    to you in a seemingly dangerous tone:
+  </p>
+  <p>
+    <span>
+      "I'm sure you are not one to enjoy having blood on your hands. I am very
+      weary from exhaustion, could you possibly provide me with some water at
+      the very least?"
+    </span>
+  </p>
+  <p>
+    You feel compelled to at least give her some water. There's no danger in
+    helping her recover some strength.
+  </p>
+  <button (click)="this.storyProgress = 21">
+    Give her your canteen
+  </button>
+  <button (click)="this.storyProgress = 22">
+    Do nothing
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 21">
+  <p>
+    You approach her and bring the canteen to her lips. Most of the water seems
+    to spill down onto the ground as she attempts to drink. Having exhausted
+    what was left in your canteen, you go to stand up.
+  </p>
+  <button (click)="this.storyProgress = 11">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 22">
+  <p>
+    At this point, Daisy's companion arrives on the scene and rushes over to
+    her side. As he hugs her with his back towards you, you can see Daisy whispering
+    something into his ear with a cruel smile on her face. Something is not right.
+    The man turns around and glares at you with contempt and draws a knife from
+    his back.
+  </p>
+  <p>
+    <span>
+      "I'm not sure how you resisted my mind control, but its a good thing your
+      friend here is very...compliant. Now dear, could you possibly kill this man
+      thats in our way?"
+    </span>
+  </p>
+  <p>
+    The traveler begins to approach you slowly while brandishing his knife. Mind
+    control relies on subtle control of victims usually by means of a binding
+    phrase and eye contact. The technique is not without substantial risk however.
+    Knowing this might just save your life. If you can utter the phrase she is
+    using while she is concentrating on her spell, you can turn the spell back
+    on the caster.
+  </p>
+  <p>
+    Thinking back quickly on Daisy's mannerisms, you think of the phrase in
+    your mind and shout:
+  </p>
+  <p *ngIf="this.struggle">
+    That must not have been the right phrase. You quickly dodge as the traveler
+    slashes at you, but you still take <b>1 Hp of damage</b>. Do you try again
+    or attempt to flee?
+  </p>
+  <p id="character" *ngIf="this.characterClass === 'Paladin' && this.struggle">
+    As a paladin, fleeing is never an option to begin with. This man needs your
+    help and this foul creature needs to perish. Taking a step back, you realize
+    that the placeholder in the input box provides a clue to the phrase. Three
+    words: 5, 3, and 8 letters long respectively. What could it be?
+  </p>
+  <input type="text" [(ngModel)]="this.spell" placeholder="----- --- --------">
+  <button (click)="this.breakSpell()">
+    Shout
+  </button>
+  <button *ngIf="this.struggle" [disabled]="this.characterClass === 'Paladin'" (click)="this.storyProgress = 25">
+    Flee
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 23">
+  <p>
+    You hear a scream of agony as Daisy crumples to the ground. The traveler stops
+    in his tracks with his knife and comes to his senses. Eventually, silence
+    permeates the air as the creature known as Daisy lies motionless on the ground.
+    She won't be devouring anymore victims. The traveler approaches you to express
+    his thanks.
+  </p>
+  <p>
+    <span>
+      "I'm very sorry. If it wasn't for you, I would surely be dead. You did a
+      great deed in defeating this monster. I know it isn't much, but its the
+      least I can do for you."
+    </span>
+  </p>
+  <button (click)="this.reward()">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 24">
+  <p>
+    The traveler hands you his gold pocket watch. A watch of this quality would
+    be worth a solid <strong>250 gold</strong> in treasure. You gratefully pocket
+    the watch and chuckle at this narrator's fine pun. A good deed did not go
+    unrewarded this time. As you part ways, you feel lucky to have made it through
+    such an ordeal with everyone surviving.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 25">
+  <p>
+    Fleeing for your life, you manage to evade Daisy and her new servant without
+    coming to additional harm. Strangely enough, it seems that the traveler does
+    not venture out of the woods after you. It could be that Daisy's mind control
+    has limited range. While you manage to survive the incident, you realize that
+    the traveler is most certainly doomed to remain that creature's plaything at
+    best. That is a decision you will just have to live with.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>

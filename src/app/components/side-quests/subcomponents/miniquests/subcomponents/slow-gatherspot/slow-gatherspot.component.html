@@ -1,0 +1,142 @@
+<h3>
+  <span>
+    Gathering Spot
+  </span>
+</h3>
+
+<div class="container" *ngIf="this.storyProgress === 0">
+  <p>
+    As you are traveling, you take the time to view your surroundings carefully
+    for both danger and opportunity alike. In this case, you find a small mine
+    nearby. Looking at some of the minecarts at the entrance, you see that this
+    mine likely contains a generous supply of coal. It seems abandoned at the
+    moment and you could probably venture in to gather some ore to sell to a
+    merchant along the way.
+  </p>
+  <p>
+    You figure as long as you do not stay long, you will not suffer any ill-effects
+    from the mining excursion itself. Knowing when to call it quits would be
+    the trick.
+  </p>
+  <p>
+    <b>Chance of danger: {{100 - gatherChance}}%</b>. You have gathered {{gatheredSupplies * 25}}g
+    worth of ore so far.
+  </p>
+  <button (click)="this.gather()">
+    Gather
+  </button>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Leave
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 1">
+  <p>
+    As you continue to gather ore, you hear a low growl come from the entrance
+    of the cave. As you squint to adjust your eyes to the brightness of the cave
+    entrance, you realize that this must be the dwelling of a catbear! Half cat,
+    half bear, a quarter cute, three-quarters dangerous, all catbear.
+  </p>
+  <p id="character" *ngIf="this.characterClass === 'Lupin'">
+    You have heard about catbears before from other adventurers. You could try to
+    make yourself appear large by throwing out your arms and scaring the catbear,
+    but there is no guarantee it would not attack out of fear rather than run away.
+    Contrary to popular opinion on the matter, staying perfectly still will only get you mauled by
+    the catbear. They have an excellent sense of smell and can detect you easily
+    even in the shadows. The best course of action would be to overpower its
+    senses with a pungent odor...like human urine.
+  </p>
+  <p>
+    You have a decision to make. In order to escape safely, you decide to:
+  </p>
+  <button (click)="this.storyProgress = 2">
+    Don't move
+  </button>
+  <button (click)="this.intimidate()">
+    Try intimidation
+  </button>
+  <button (click)="this.storyProgress = 20">
+    Wet yourself
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 2">
+  <p>
+    Knowing that bears naturally fear humans, you decide to stay still in the
+    hopes that once it notices you, the catbear will flee the cave allowing you
+    to leave safely. On the contrary, the catbear appears to turning up its nose
+    high into the air. It must smell you as it closes in on your position. Can it
+    not see you due to the darkness of the cave? It's getting closer now. Very
+    close. You could change course if you acted right away.
+  </p>
+  <button (click)="this.mauled()">
+    Continue to remain still
+  </button>
+  <button (click)="this.intimidate()">
+    Try to scare the catbear away
+  </button>
+  <button (click)="this.storyProgress = 20">
+    Wet yourself in fright
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 3">
+  <p>
+    The catbear begins to realize what you are, and feeling threatened, immediately
+    starts to attack you. You <b>take two damage</b> right away and now must attempt
+    to flee with your live. You really only have two options available to you
+    at this point.
+  </p>
+  <button (click)="this.struggle(2, 1)">
+    Struggle
+  </button>
+  <button (click)="this.struggle(1, 2)">
+    Play dead
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 4">
+  <p>
+    You struggle intensely to free yourself from the beast. Through some miracle,
+    it raises up to finish you off and hits the back of its head against the ceiling
+    of the cave. Capitalizing on the opportunity, you crawl between its legs and
+    run out of the cave as fast as you can. After making it a safe distance away,
+    you can start to feel the effects of your skirmish and the resulting injuries.
+    You do manage to escape with the ore you mined for a total of <strong>{{gatheredSupplies * 25}}g</strong>
+    worth of treasure for you to sell at the next shop if that is any consolation.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 5">
+  <p>
+    Opting to play dead feels like a mistake as the catbear continues to have
+    his way with you for what feels like an eternity. Eventually, the creature
+    feels that you are satisfactorily deceased and leaves the cave to continue
+    its wandering. You wait some time to make sure it does not return and leave
+    the cave carefully. You sustained some injury from the continued assault, but
+    maybe you took less than if you would have struggled against a beast you had
+    no chance against in the first place. You do manage to escape with the ore
+    you mined for a total of <strong>{{gatheredSupplies * 25}}g</strong>
+    worth of treasure for you to sell at the next shop if that is any consolation.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 20">
+  <p>
+    Overwhelmed by your superior tactics, the catbear flees the cave for its very
+    life. You honestly did not expect the idea to work and are simply glad no
+    one was around to see you do it. Feeling lucky just to escape unharmed, you
+    are especially grateful that you did not lose out on any of the ore you collected.
+    You take your <strong>{{gatheredSupplies * 25}}g</strong> worth of earnings and continue on
+    your way.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>

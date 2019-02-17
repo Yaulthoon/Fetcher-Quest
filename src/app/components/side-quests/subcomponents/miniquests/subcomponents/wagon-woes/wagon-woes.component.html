@@ -1,0 +1,86 @@
+<h3>
+  <span>
+    Wagon Woes
+  </span>
+</h3>
+
+<div class="container" *ngIf="this.storyProgress === 0">
+  <p>
+    With how hard you've been traveling so far, it was bound to happen. One of
+    your wagon wheels finally gave way and now you're stuck in the middle of
+    the road. You could probably patch the wheel up with some of your various
+    supplies quickly if you have some to spare. If not, you might be stuck here
+    until a kind traveler comes by and helps you out which could take a while.
+  </p>
+  <button [disabled]="this._attributes.currentClass.inventory.getSupplies() < 5" (click)="this.patchWheel()">
+    Patch the wheel (5 supplies)
+  </button>
+  <button (click)="this.storyProgress = 2">
+    Wait for help
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 1">
+  <p>
+    You spend a little time mending your wagon wheel and its good as new. It
+    may have costed you more supplies than you would have liked, but it is the
+    cost of the daily grind after all. Thankfully, you are able to increase your
+    pace a bit, so you do not lose any distance in your day's travel.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 2">
+  <p>
+    After quite some time, you can see a merchant wagon traveling along the path.
+    You hail the individual and explain the situation. The merchant seems to
+    feel for your plight and is willing to make a deal, for a price.
+  </p>
+  <p>
+    <span>
+      "That's quite a pickle to be in. I know how it is to get stranded on the road.
+      I don't have any wheels for sell unfortunately. Well, tell you what, I can sell
+      you my own spare wheel if you want. Considering the risk I will be undertaking
+      in traveling without a spare myself, I suppose I could sell it to you for 100 gold?"
+    </span>
+  </p>
+  <p>
+    Buying the wheel will let you get back on the road quickly and will allow
+    you to make up most, but not all, of your day's expected travel distance.
+    You decide to:
+  </p>
+  <button [disabled]="this._attributes.currentClass.inventory.getGold() < 100" (click)="this.buyWheel()">
+    Buy the wheel (100 gold)
+  </button>
+  <button (click)="this.charity()">
+    Keep waiting
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 3">
+  <p>
+    Feeling a little extorted, you agree to purchase the merchant's wheel. Although
+    the wheel was expensive, the merchant at least had the kindness to help you
+    mount the wheel before he left. At least you can continue your travels. Despite
+    losing a little time, you are able to largely salvage your day's travel.
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>
+
+<div class="container" *ngIf="this.storyProgress === 4">
+  <p>
+    After another several hours, you find a traveler willing to help you with
+    your plight without attempting to price gouge you. Kind strangers still do
+    exist apparently. Although you were able to get your wagon fixed free of
+    charge, you lost nearly the entire's day worth of travel due to the long
+    wait for help. Perhaps next time you will carry some extra supplies with you
+    for this sort of situation?
+  </p>
+  <button (click)="this.router.navigate(['travel-screen'])">
+    Continue
+  </button>
+</div>

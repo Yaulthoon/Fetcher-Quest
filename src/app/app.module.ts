@@ -47,6 +47,8 @@ import { TravelScreenComponent } from './components/travel-screen/travel-screen.
 
 import { EventScreenComponent } from './components/event-screen/event-screen.component';
 
+import { FetcherNotFoundComponent } from './components/fetcher-not-found/fetcher-not-found.component';
+
 import { ShopScreenComponent } from './components/shop-screen/shop-screen.component';
 import { ForestShortcutComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/forest-shortcut/forest-shortcut.component';
 import { CampsiteSoloComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/campsite-solo/campsite-solo.component';
@@ -54,6 +56,10 @@ import { WellfareComponent } from './components/side-quests/subcomponents/miniqu
 import { HighLowComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/high-low/high-low.component';
 import { StormBrewingComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/storm-brewing/storm-brewing.component';
 import { RiverCrossingComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/river-crossing/river-crossing.component';
+import { SlowGatherspotComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/slow-gatherspot/slow-gatherspot.component';
+import { WagonWoesComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/wagon-woes/wagon-woes.component';
+import { SlowLuckyYouComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/slow-lucky-you/slow-lucky-you.component';
+import { DaisyJaneComponent } from './components/side-quests/subcomponents/miniquests/subcomponents/daisy-jane/daisy-jane.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +98,12 @@ import { RiverCrossingComponent } from './components/side-quests/subcomponents/m
     WellfareComponent,
     HighLowComponent,
     StormBrewingComponent,
-    RiverCrossingComponent
+    RiverCrossingComponent,
+    FetcherNotFoundComponent,
+    SlowGatherspotComponent,
+    WagonWoesComponent,
+    SlowLuckyYouComponent,
+    DaisyJaneComponent
   ],
   imports: [
     BrowserModule,
@@ -104,9 +115,10 @@ import { RiverCrossingComponent } from './components/side-quests/subcomponents/m
   providers: [AttributesService, ActiveQuestService],
   bootstrap: [AppComponent],
   entryComponents: [
+    DaisyJaneComponent, WagonWoesComponent, SlowLuckyYouComponent,
     RealBeggarComponent, ForestShortcutComponent, ShopScreenComponent,
     CampsiteSoloComponent, WellfareComponent, HighLowComponent,
-    StormBrewingComponent, RiverCrossingComponent
+    StormBrewingComponent, RiverCrossingComponent, SlowGatherspotComponent
   ],
   schemas: [
     NO_ERRORS_SCHEMA

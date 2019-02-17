@@ -17,6 +17,7 @@
     <a>Name: {{this.character.getClass()}}</a>
     <a>HP: {{this.character.getHp()}}</a>
     <a>Gold: {{this.character.inventory.getGold()}}</a>
+    <a>Treasure: {{this.character.inventory.getTreasure()}}</a>
     <a>Status: {{this.characterStatus()}}</a>
     <a *ngIf="this.injuries.turns > 0">Injury: {{this.injuries.damage}} for {{this.injuries.turns}} turns</a>
     <!--Inventory-->
@@ -36,6 +37,12 @@
   </div>
   <!--Character Hot Bar End-->
 
-  <div id="content">
+  <div id="content" *ngIf="this._attributes.currentClass.getHp() > 0">
     <router-outlet></router-outlet>
+  </div>
+
+  <div id="content" *ngIf="this._attributes.currentClass.getHp() <= 0">
+    <p>
+      You have died
+    </p>
   </div>

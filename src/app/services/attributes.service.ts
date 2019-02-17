@@ -34,7 +34,7 @@ export class AttributesService {
   druid = new CharacterClass();
   paladin = new CharacterClass();
 
-  currentClass = this.tumblemancer;
+  currentClass = this.paladin;
 
   constructor(public router: Router) {
     this.tumblemancer.setClass('Tumblemancer');

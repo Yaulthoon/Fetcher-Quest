@@ -1,7 +1,7 @@
 import { Component, OnInit, QueryList, ContentChildren, ViewChildren, ElementRef, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { Observable ,  BehaviorSubject } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import { WhatIsFetcherQuestComponent } from '../about/about.faq.folder/what-is-fetcher-quest/what-is-fetcher-quest.component';
 
 
@@ -11,6 +11,8 @@ import { WhatIsFetcherQuestComponent } from '../about/about.faq.folder/what-is-f
   styleUrls: ['../side-quests/side-quests.component.css']
 })
 export class AboutComponent implements OnInit {
+  //inputString used as example for the @input decorator
+  inputString = 'This is from parent';
 
   navHideShow: boolean = false;
 

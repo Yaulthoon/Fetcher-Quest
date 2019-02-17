@@ -1,0 +1,76 @@
+.container {
+  position: relative;
+  left: 5%;
+  width: 90%;
+  margin-top: 12vh;
+  box-sizing: border-box;
+}
+
+.container p {
+  position: relative;
+  font-size: 1.4vw;
+  font-family: 'Arial';
+  color: #1f1c14;
+  box-sizing: border-box;
+  left: 11%;
+  width: 78%;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.container p span {
+  color: #3e0e02;
+  font-weight: bold;
+}
+
+.container ol {
+  position: relative;
+  font-size: 1.4vw;
+  font-family: 'Arial';
+  color: #1f1c14;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  left: 16%;
+  width: 68%;
+}
+
+.container img {
+  position: relative;
+  left: 40%;
+  width: 20%;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.container h5 {
+  position: relative;
+  left: 10%;
+  width: 80%;
+  text-align: center;
+  font-size: 1.4vw;
+  margin-top: 4px;
+  font-family: 'Amaranth', 'Arial';
+  color: #d45500;
+}
+
+@media only screen and (max-width: 750px) {
+  .container {
+    margin-top: 10vh;
+  }
+
+  .container p, .container ol, .container h5 {
+    font-size: 3vw;
+  }
+
+  .container ol {
+    left: 13%;
+    width: 70%;
+    padding-left: 20px;
+  }
+
+  .container img {
+    width: 40%;
+    left: 30%;
+  }
+}

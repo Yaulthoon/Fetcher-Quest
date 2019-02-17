@@ -13,6 +13,7 @@ import { CharacterClass } from '../../../utils/character-class';
 export class TravelScreenComponent implements OnInit {
 
   navHideShow: boolean = false;
+  movementOptions: boolean = false;
   map: boolean = true;
   positionX: number = 0;
   positionY: number = 0;
@@ -103,7 +104,7 @@ export class TravelScreenComponent implements OnInit {
   }
 
   increaseDistance(num, supplyCost) {
-    if (this.character.getHp() <= 0) {
+    if (this.character.getHp() <= 0 || this.movementOptions) {
       return;
     }
     if (this._attributes.progressDistance + num > this._attributes.currentPath) {
@@ -136,6 +137,7 @@ export class TravelScreenComponent implements OnInit {
   }
 
   nextEvent() {
+    this.movementOptions = true;
     this._quests.questNumber = this.questNumber;
     setTimeout(() => {
       this.router.navigate(['event-screen']);
@@ -184,5 +186,5 @@ export class TravelScreenComponent implements OnInit {
       this[condition] = true;
     }
   }
-
+  //Find treasure on the ground, could be a plant-based trap idea
 }

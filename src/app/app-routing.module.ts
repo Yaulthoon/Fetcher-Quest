@@ -35,6 +35,8 @@ import { TravelScreenComponent } from './components/travel-screen/travel-screen.
 
 import { EventScreenComponent } from './components/event-screen/event-screen.component';
 
+import { FetcherNotFoundComponent } from './components/fetcher-not-found/fetcher-not-found.component';
+
 const routes: Routes = [
 
   {
@@ -170,7 +172,7 @@ const routes: Routes = [
   },
 
   {
-    path: '**', component: HomeScreenComponent
+    path: '**', component: FetcherNotFoundComponent
   },
 
 ];

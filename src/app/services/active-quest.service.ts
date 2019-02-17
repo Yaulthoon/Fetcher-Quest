@@ -15,6 +15,10 @@ import { WellfareComponent } from '../components/side-quests/subcomponents/miniq
 import { HighLowComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/high-low/high-low.component';
 import { StormBrewingComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/storm-brewing/storm-brewing.component';
 import { RiverCrossingComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/river-crossing/river-crossing.component';
+import { SlowGatherspotComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/slow-gatherspot/slow-gatherspot.component';
+import { WagonWoesComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/wagon-woes/wagon-woes.component';
+import { SlowLuckyYouComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/slow-lucky-you/slow-lucky-you.component';
+import { DaisyJaneComponent } from '../components/side-quests/subcomponents/miniquests/subcomponents/daisy-jane/daisy-jane.component';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +30,8 @@ export class ActiveQuestService {
   questNumber: number = 0;
   currentQuest;
   normalQuests: any = [
-    RiverCrossingComponent,
+    DaisyJaneComponent, SlowLuckyYouComponent,
+    WagonWoesComponent, SlowGatherspotComponent, RiverCrossingComponent,
     StormBrewingComponent, HighLowComponent, WellfareComponent,
     CampsiteSoloComponent, ForestShortcutComponent, ShopScreenComponent,
     MagicSquareComponent, NthTwentyOneComponent, KindOfSlushComponent,
